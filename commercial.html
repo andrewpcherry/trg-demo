@@ -52,36 +52,9 @@
       <div class="fcard rv"><div class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><h3>Asset management</h3><p>Roof asset registry, inspection programs, and multi-year budget forecasting your finance team can plan around.</p></div>
       <div class="fcard hot rv"><div class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><h3>Service agreements</h3><p>Recurring maintenance and service-level agreements that lock in pricing, response, and priority.</p></div>
     </div>
+    <div class="notice rv" style="margin-top:34px"><b>Active leak?</b> Our 24/7 commercial leak response routes service agreement holders to the front of the queue. For everyone else, call us and we'll triage as quickly as conditions allow.</div>
   </div>
 </section>
-<section class="sec dark-sec">
-  <div class="wrap">
-    <div class="ops-grid">
-      <div class="rv">
-        <span class="kicker" style="color:var(--gold)">After-hours leak dispatch</span>
-        <h2>A 2:04 AM leak call reaches a decision, not a voicemail.</h2>
-        <p class="lead">Active leak? We dispatch first to service-agreement clients. When a facilities manager calls at 2 AM, the AI team member answers, triages, checks the service agreement, and starts the dispatch, before the coffee machine at any other roofer has turned on.</p>
-        <div class="checks"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Every after-hours call answered in seconds</div><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Agreement holders routed to the front of the queue</div><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Building, roof system and history pulled from the asset registry</div><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Dispatch confirmed by text with an ETA</div></div>
-      </div>
-      <div class="rv rv-d1">
-        <div class="phone"><div class="phone-scr">
-          <div class="phone-top"><div class="p-notch"></div><b>Texas Roof Guardians</b><small>Commercial line &middot; 2:04 AM</small></div>
-          <div class="sms-body" data-sms="smsCom"></div>
-        </div></div>
-        <div class="scene-tag">Scripted preview &middot; illustrative conversation</div>
-      </div>
-    </div>
-  </div>
-</section>
-<script type="application/json" id="smsCom">[
-  {"meta":"Missed call &middot; 2:04 AM &middot; texted back in 9 seconds","d":700},
-  {"us":"Texas Roof Guardians 24/7 line. I see you called from Riverview Business Park. Is this an active leak?","d":1700},
-  {"them":"Yes. Water coming through the ceiling in suite 210, hitting server equipment","d":1600},
-  {"us":"Understood, treating this as an emergency. Your Guardian Care agreement puts you at the front of the dispatch queue. Crew is being paged now. Please keep power off in the affected area if safe to do so.","d":2000},
-  {"them":"Ok. How fast can they be here?","d":1200},
-  {"us":"Dispatch confirmed. ETA and crew details below. I've also pulled your building's roof file: TPO, last inspected in March, drain map attached for the crew.","grn":true,"d":1600},
-  {"meta":"Emergency dispatch confirmed &middot; full report to your account manager by 8 AM","d":900}
-]</script>
 
 
 <section class="cta-band">
@@ -99,9 +72,8 @@
   </div>
 </section>
 
-
 <script>
-window.PAGE = { key: "commercial.html", chat: [{"ai": "Welcome to the commercial division. I'm the AI team member on duty. Are you a property manager, HOA board member, or business owner?", "d": 1500}, {"chips": ["Property manager", "HOA board", "Business owner"], "pick": 0, "t": 1500}, {"user": "Property manager. I have three buildings and no current roofing vendor"}, {"ai": "You're exactly who this division was built for. First step is easy and free: a no-cost roof condition report on all three buildings, one standard, one document your owners can read.", "d": 1800}, {"user": "What would an ongoing agreement look like?"}, {"ai": "Guardian Commercial Care has three levels: Essential (annual inspection program), Professional (biannual, storm priority) and Asset Management (quarterly, capital planning). All drone-documented with condition reports. I can have our commercial lead walk your buildings this week.", "d": 2100}, {"user": "Let's start with the condition report"}, {"ai": "Smart. I just need the property addresses, and I'll get the assessment scheduled.", "card": {"icon": "doc", "title": "No-cost portfolio condition report", "sub": "3 buildings, one standard, owner-ready"}, "d": 1500}] };
+window.PAGE = { key: "commercial.html", chat: [{"ai": "Welcome to the commercial division. Are you a property manager, HOA board member, or business owner?", "d": 1500}, {"chips": ["Property manager", "HOA board", "Business owner"], "pick": 0, "t": 1500}, {"user": "Property manager. I have three buildings and no current roofing vendor"}, {"ai": "You're exactly who this division was built for. First step is easy and free: a no-cost roof condition report on all three buildings, one standard, one document your owners can read.", "d": 1800}, {"user": "What would an ongoing agreement look like?"}, {"ai": "Guardian Commercial Care has three levels: Essential (annual inspection program), Professional (biannual, storm priority) and Asset Management (quarterly, capital planning). All drone-documented with condition reports. Our commercial lead can walk your buildings this week.", "d": 2100}, {"user": "Let's start with the condition report"}, {"ai": "Smart. We just need the property addresses and we'll get the assessment scheduled.", "card": {"icon": "doc", "title": "No-cost portfolio condition report", "sub": "3 buildings, one standard, owner-ready"}, "d": 1500}] };
 </script>
 <script src="assets/reviews.js"></script>
 <script src="assets/site.js"></script>

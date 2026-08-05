@@ -44,34 +44,20 @@
     <div class="notice rv" style="margin-top:34px"><b>Eligibility:</b> SPP enrollment is limited to roofs we installed or roofs under one year old that pass our inspection. This keeps every member's baseline documentation strong and claim-ready.</div>
   </div>
 </section>
-<section class="sec dark-sec">
+<section class="sec alt">
   <div class="wrap">
-    <div class="ops-grid">
+    <div class="split">
       <div class="rv">
-        <span class="kicker" style="color:var(--gold)">The proactive difference</span>
-        <h2>Hail hit your ZIP at 7:41 PM.<br>By 7:58 the AI already texted you.</h2>
-        <p class="lead">Everyone else's roofer waits for the phone to ring. The Storm Protection Plan watches the weather for you: after a qualifying hail or wind event in a member ZIP, the AI team member reaches out first, checks on your home, and offers the post-storm inspection your membership includes.</p>
-        <div class="checks"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Weather events monitored in every member ZIP</div><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Members contacted proactively after qualifying storms</div><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Baseline photos on file make adjuster review faster</div><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Tarping priority if your roof was breached</div></div>
+        <span class="kicker">Why baseline documentation wins</span>
+        <h2>The file matters as much as the roof.</h2>
+        <p class="lead" style="margin-top:14px">When a storm hits, the homeowners who settle fastest are the ones who can show an adjuster exactly what the roof looked like beforehand. Membership creates that record on day one and keeps it current every year.</p>
+        <div class="checks"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Day-one condition report locked on file</div><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Existing photos accelerate adjuster review</div><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>The same crew that built your roof inspects it</div><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Weather events tracked in your ZIP, not guessed at</div></div>
       </div>
-      <div class="rv rv-d1">
-        <div class="phone"><div class="phone-scr">
-          <div class="phone-top"><div class="p-notch"></div><b>Texas Roof Guardians</b><small>Storm Plan member line</small></div>
-          <div class="sms-body" data-sms="smsSpp"></div>
-        </div></div>
-        <div class="scene-tag">Scripted preview &middot; illustrative conversation</div>
-      </div>
+      <div class="split-img rv rv-d1"><img src="assets/storm.webp" alt="Texas storm approaching a protected home"></div>
     </div>
   </div>
 </section>
-<script type="application/json" id="smsSpp">[
-  {"meta":"Qualifying hail event &middot; ZIP 78258 &middot; 7:41 PM","d":800},
-  {"us":"Hi Maria, Texas Roof Guardians here. Radar shows quarter-size hail moved through Stone Oak about 20 minutes ago. As a Storm Protection Plan member, your post-storm inspection is included. Everyone safe over there?","d":2100},
-  {"them":"We're fine! It was loud. Should I be worried about the roof?","d":1500},
-  {"us":"Quarter-size can bruise shingles without visible leaks, that's exactly what your membership is for. I can have your inspector out tomorrow between 10 and noon. Your baseline photos from March are already on file, so any new damage will stand out immediately.","d":2200},
-  {"them":"Yes please, tomorrow works","d":1100},
-  {"us":"Booked. If anything is found, we document it to adjuster standard and walk you through the claim, that's included too. Talk tomorrow!","grn":true,"d":1500}
-]</script>
-<section class="sec alt">
+<section class="sec">
   <div class="wrap">
     <div class="sec-head rv"><span class="kicker">Important disclosures</span><h2 style="font-size:1.3rem">What SPP is, and is not.</h2></div>
     <p class="rv" style="max-width:820px;font-size:.9rem;color:var(--body)">The Storm Protection Plan is a maintenance and service membership offered by Texas Roof Guardians. It is <b>not an insurance product</b> and does not replace, supplement, or modify your homeowners insurance policy. Membership does not guarantee insurance claim approval, payment, or coverage outcomes. The Loyalty Discount is a contractor pricing incentive applied to qualifying non-insurance repair invoices.</p>
@@ -94,9 +80,8 @@
   </div>
 </section>
 
-
 <script>
-window.PAGE = { key: "storm-protection-plan.html", chat: [{"ai": "This is the Storm Protection Plan desk. Want me to check your eligibility? It takes two questions.", "d": 1500}, {"chips": ["Check my eligibility", "What does it cost?", "How does it work?"], "pick": 0, "t": 1400}, {"user": "Sure, check it"}, {"ai": "Question one: did Texas Roof Guardians install your current roof?", "d": 1300}, {"user": "No, another company did it about 8 months ago"}, {"ai": "Good news: roofs under one year old qualify if they pass our inspection first. That inspection also creates your baseline documentation, the day-one condition report that makes any future storm claim dramatically easier.", "d": 2000}, {"user": "What happens when a storm hits?"}, {"ai": "We watch the weather in your ZIP. After qualifying hail or wind, we contact you proactively, schedule your included post-storm inspection, and if your roof is breached you're at the front of the tarping queue. Want the qualifying inspection?", "d": 2100}, {"user": "Yes"}, {"ai": "On it. One address and a preferred day, and your membership file is open.", "card": {"icon": "shield", "title": "SPP qualifying inspection", "sub": "Baseline photo documentation included"}, "d": 1500}] };
+window.PAGE = { key: "storm-protection-plan.html", chat: [{"ai": "This is the Storm Protection Plan desk. Want us to check your eligibility? It takes two questions.", "d": 1500}, {"chips": ["Check my eligibility", "What does it cost?", "How does it work?"], "pick": 0, "t": 1400}, {"user": "Sure, check it"}, {"ai": "Question one: did Texas Roof Guardians install your current roof?", "d": 1300}, {"user": "No, another company did it about 8 months ago"}, {"ai": "Good news: roofs under one year old qualify if they pass our inspection first. That inspection also creates your baseline documentation, the day-one condition report that makes any future storm claim dramatically easier.", "d": 2000}, {"user": "What happens when a storm hits?"}, {"ai": "We watch the weather in your ZIP. After qualifying hail or wind, we contact you, schedule your included post-storm inspection, and if your roof is breached you're at the front of the tarping queue. Want the qualifying inspection?", "d": 2100}, {"user": "Yes"}, {"ai": "On it. One address and a preferred day, and your membership file is open.", "card": {"icon": "shield", "title": "SPP qualifying inspection", "sub": "Baseline photo documentation included"}, "d": 1500}] };
 </script>
 <script src="assets/reviews.js"></script>
 <script src="assets/site.js"></script>

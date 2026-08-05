@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>The Conversational AI Layer | Texas Roof Guardians</title>
+<meta name="theme-color" content="#051d33">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  body{background:var(--navy-ink)}
+  .d-nav{position:sticky;top:0;z-index:60;background:rgba(5,29,51,.86);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.09)}
+  .d-nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;padding-top:14px;padding-bottom:14px}
+  .d-nav img{height:40px;width:auto;background:#fff;border-radius:8px;padding:4px}
+  .d-nav .d-tag{font-family:var(--disp);font-weight:500;text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;color:var(--gold)}
+  .d-nav a.back{font-family:var(--disp);font-weight:500;text-transform:uppercase;letter-spacing:.08em;font-size:.8rem;color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:10px 20px}
+  .d-nav a.back:hover{background:rgba(255,255,255,.12)}
+  .d-hero{padding:96px 0 70px;color:#fff;position:relative;overflow:hidden}
+  .d-hero::after{content:"";position:absolute;top:-160px;right:-140px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(249,156,0,.18),transparent 68%);pointer-events:none}
+  .d-hero h1{font-size:clamp(2.3rem,5vw,4rem);max-width:16ch}
+  .d-hero h1 span{color:var(--gold)}
+  .d-hero .lead{color:rgba(255,255,255,.82);margin-top:20px;font-size:1.12rem;max-width:60ch}
+  .scene-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:20px}
+  @media(max-width:1040px){.scene-grid{grid-template-columns:1fr;max-width:420px;margin-inline:auto}}
+  .scene{display:flex;flex-direction:column;align-items:center}
+  .scene .s-label{text-align:center;margin-bottom:20px}
+  .scene .s-label b{font-family:var(--disp);font-weight:500;text-transform:uppercase;letter-spacing:.09em;font-size:1rem;color:#fff;display:block}
+  .scene .s-label small{color:rgba(255,255,255,.6);font-size:.83rem;line-height:1.5;display:block;margin-top:6px}
+  .scene .phone{width:300px}
+  .scene .phone-scr{height:530px}
+  .feed{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.11);border-radius:var(--r-lg);padding:26px}
+  .feed h4{font-family:var(--disp);font-weight:500;text-transform:uppercase;letter-spacing:.14em;font-size:.8rem;color:var(--gold);margin-bottom:18px}
+  .feed .frow{display:flex;gap:13px;align-items:flex-start;padding:14px 0;border-top:1px solid rgba(255,255,255,.08)}
+  .feed .frow:first-of-type{border-top:none}
+  .feed .fic{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.09);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .feed .fic svg{width:17px;height:17px;stroke:var(--gold)}
+  .feed b{display:block;font-size:.88rem;color:#fff}
+  .feed small{color:rgba(255,255,255,.58);font-size:.79rem;line-height:1.5}
+  .feed .ftime{margin-left:auto;font-family:var(--disp);font-size:.72rem;color:rgba(255,255,255,.4);white-space:nowrap;padding-left:10px}
+  .bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:980px){.bgrid{grid-template-columns:1fr 1fr}}
+  @media(max-width:640px){.bgrid{grid-template-columns:1fr}}
+  .bx{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.11);border-radius:var(--r-lg);padding:26px}
+  .bx .bic{width:46px;height:46px;border-radius:13px;background:rgba(249,156,0,.14);display:flex;align-items:center;justify-content:center;margin-bottom:15px}
+  .bx .bic svg{width:21px;height:21px;stroke:var(--gold)}
+  .bx h3{color:#fff;font-size:1.02rem;margin-bottom:8px}
+  .bx p{color:rgba(255,255,255,.68);font-size:.87rem;line-height:1.6}
+  .honest{background:rgba(249,156,0,.08);border:1px solid rgba(249,156,0,.26);border-radius:var(--r-lg);padding:26px 30px;color:rgba(255,255,255,.82);font-size:.9rem;line-height:1.7}
+  .honest b{color:var(--gold)}
+  .d-foot{border-top:1px solid rgba(255,255,255,.1);padding:36px 0;color:rgba(255,255,255,.45);font-size:.8rem;text-align:center}
+</style>
+</head>
+<body>
+
+<nav class="d-nav">
+  <div class="wrap">
+    <img src="assets/logo.png" alt="Texas Roof Guardians">
+    <span class="d-tag">The conversational AI layer</span>
+    <a class="back" href="index.html">View the website &rarr;</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="d-hero">
+  <div class="wrap">
+    <span class="kicker" style="color:var(--gold)">What sits behind the new site</span>
+    <h1>Every roof starts<br>with <span>a conversation</span><br>someone has to answer.</h1>
+    <p class="lead">Your new website is the storefront. This is the part that never sleeps: the layer that answers the phone at 2 AM, texts back the call nobody picked up, and turns a late-night message into a booked inspection on Dustin's calendar. Here is exactly what it does, scene by scene.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-red" href="#scenes">See it work</a>
+      <a class="btn btn-glass" href="index.html">Back to the website</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ THE MOMENT ============ -->
+<section class="sec dark-sec" id="scenes" style="background:linear-gradient(180deg,var(--navy-deep),var(--navy-ink))">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker" style="color:var(--gold)">The moment it matters</span>
+      <h2>It is 9:41 PM. A homeowner calls.<br>Nobody is in the office.</h2>
+      <p class="lead">Today that call goes to voicemail and the homeowner dials the next roofer on Google. Watch what happens instead when the layer is live.</p>
+    </div>
+    <div class="ops-grid">
+      <div class="ops-steps rv">
+        <div class="ops-step"><div class="os-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><b>Missed call detected</b><small>A San Antonio homeowner calls after hours. No one picks up. Today, you never even know it happened.</small></div><span class="os-t">9:41:04 PM</span></div>
+        <div class="ops-step"><div class="os-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div><b>Texted back in nine seconds</b><small>Before they scroll down to the next roofer, their phone buzzes with a real reply from Texas Roof Guardians.</small></div><span class="os-t">9:41:13 PM</span></div>
+        <div class="ops-step"><div class="os-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div><b>The job qualifies itself</b><small>Leak or storm, roof age, address, insurance status. Asked conversationally, captured to the CRM.</small></div><span class="os-t">9:43 PM</span></div>
+        <div class="ops-step"><div class="os-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div><b>Inspection booked</b><small>Thursday 9:00 AM lands on the calendar. Confirmation and reminders go out on their own.</small></div><span class="os-t">9:44 PM</span></div>
+        <div class="ops-step"><div class="os-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><div><b>You wake up to a booked job</b><small>One notification with the whole conversation attached. Not a voicemail, not a missed opportunity.</small></div><span class="os-t">9:44 PM</span></div>
+      </div>
+      <div class="rv rv-d1">
+        <div class="phone"><div class="phone-scr">
+          <div class="phone-top"><div class="p-notch"></div><b>Texas Roof Guardians</b><small>Text Message · 830-228-6123</small></div>
+          <div class="sms-body" data-sms="smsMain"></div>
+        </div></div>
+        <div class="scene-tag">Scripted illustration</div>
+      </div>
+    </div>
+  </div>
+</section>
+<script type="application/json" id="smsMain">[
+  {"meta":"Missed call · 9:41 PM", "d":700},
+  {"us":"Hi, this is Texas Roof Guardians. Sorry we missed your call! This is our 24/7 line. Is this about a leak, storm damage, or a roof quote?","d":1600},
+  {"them":"We have a leak over the kitchen after tonight's rain","d":1500},
+  {"us":"Sorry you're dealing with that. Two quick questions so we get the right person out: is water actively dripping right now, and what's the property address?","d":1800},
+  {"them":"Dripping slowly. 12406 Stone Creek Dr, San Antonio","d":1600},
+  {"us":"Got it. We can hold Thursday 9:00 AM for a free inspection with full photo documentation. If it gets worse overnight, call this number and our emergency line picks up. Want Thursday?","d":1900},
+  {"them":"Yes please","d":1100},
+  {"us":"Booked. Thursday, 9:00 AM at 12406 Stone Creek Dr. You'll get a reminder the night before. Sleep easy, we've got it from here.","grn":true,"d":1500}
+]</script>
+
+<!-- ============ THREE MORE SCENES ============ -->
+<section class="sec dark-sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker" style="color:var(--gold)">It is not just missed calls</span>
+      <h2>Three more conversations<br>that happen without you.</h2>
+      <p class="lead">Every one of these is revenue that already exists in your market. The only question is whether anyone answers when it shows up.</p>
+    </div>
+    <div class="scene-grid">
+      <div class="scene rv">
+        <div class="s-label"><b>The 2 AM commercial leak</b><small>Water hitting server equipment. A property manager needs a decision, not a voicemail.</small></div>
+        <div class="phone"><div class="phone-scr">
+          <div class="phone-top"><div class="p-notch"></div><b>Texas Roof Guardians</b><small>Commercial line · 2:04 AM</small></div>
+          <div class="sms-body" data-sms="smsCom"></div>
+        </div></div>
+      </div>
+      <div class="scene rv rv-d1">
+        <div class="s-label"><b>The denied claim at 11:38 PM</b><small>The homeowner thinks it is over. It usually is not, and the reply arrives before they give up.</small></div>
+        <div class="phone"><div class="phone-scr">
+          <div class="phone-top"><div class="p-notch"></div><b>Texas Roof Guardians</b><small>Claims line · 11:38 PM</small></div>
+          <div class="sms-body" data-sms="smsClm"></div>
+        </div></div>
+      </div>
+      <div class="scene rv rv-d2">
+        <div class="s-label"><b>The storm you reach out about first</b><small>Hail lands in a member ZIP. You contact them before a competitor knocks on the door.</small></div>
+        <div class="phone"><div class="phone-scr">
+          <div class="phone-top"><div class="p-notch"></div><b>Texas Roof Guardians</b><small>Storm Plan member · 7:58 PM</small></div>
+          <div class="sms-body" data-sms="smsSpp"></div>
+        </div></div>
+      </div>
+    </div>
+    <div class="scene-tag" style="margin-top:26px">All conversations above are scripted illustrations</div>
+  </div>
+</section>
+<script type="application/json" id="smsCom">[
+  {"meta":"Missed call · 2:04 AM · texted back in 9 seconds","d":700},
+  {"us":"Texas Roof Guardians 24/7 line. We see you called from Riverview Business Park. Is this an active leak?","d":1700},
+  {"them":"Yes. Water through the ceiling in suite 210, hitting server equipment","d":1600},
+  {"us":"Understood, treating this as an emergency. Your Guardian Care agreement puts you at the front of the dispatch queue. Crew is being paged now. Keep power off in the affected area if safe to do so.","d":2000},
+  {"them":"Ok. How fast can they be here?","d":1200},
+  {"us":"Dispatch confirmed, ETA on its way. We've pulled your building's roof file for the crew: TPO, last inspected in March, drain map attached.","grn":true,"d":1600}
+]</script>
+<script type="application/json" id="smsClm">[
+  {"meta":"Wednesday 11:38 PM","d":600},
+  {"them":"My insurance denied my hail claim today. Roof is 9 years old. Is it even worth fighting?","d":1700},
+  {"us":"Often, yes. 94% of the claims we submit end up approved or supplemented in our clients' favor. Denials frequently come down to a rushed inspection. Do you have the denial letter handy?","d":2000},
+  {"them":"Yes, it says wear and tear, not hail","d":1400},
+  {"us":"That's the most common denial language there is, and it's exactly what a documented reinspection challenges. A HAAG-certified inspector reviews your roof and the letter, free. If the denial is right, we'll tell you honestly.","d":2200},
+  {"them":"Ok let's do it","d":1000},
+  {"us":"Booked, inside our 24-hour claim review guarantee. Get some sleep, you've got an advocate now.","grn":true,"d":1500}
+]</script>
+<script type="application/json" id="smsSpp">[
+  {"meta":"Qualifying hail event · ZIP 78258 · 7:41 PM","d":800},
+  {"us":"Hi Maria, Texas Roof Guardians. Radar shows quarter-size hail moved through Stone Oak about 20 minutes ago. As a Storm Protection Plan member your post-storm inspection is included. Everyone safe?","d":2100},
+  {"them":"We're fine! It was loud. Should I be worried about the roof?","d":1500},
+  {"us":"Quarter-size can bruise shingles without visible leaks, which is exactly what your membership covers. We can have your inspector out tomorrow between 10 and noon. Your baseline photos from March are on file, so new damage stands out immediately.","d":2200},
+  {"them":"Yes please, tomorrow works","d":1100},
+  {"us":"Booked. If anything is found we document it to adjuster standard and walk you through the claim. That's included too.","grn":true,"d":1500}
+]</script>
+
+<!-- ============ OWNER VIEW ============ -->
+<section class="sec dark-sec">
+  <div class="wrap">
+    <div class="split">
+      <div class="rv">
+        <span class="kicker" style="color:var(--gold)">Your view</span>
+        <h2>You stop chasing.<br>You start reviewing.</h2>
+        <p class="lead" style="margin-top:14px">Nothing here asks you to watch a dashboard or learn new software. The work happens, and you get a running feed of what was handled and what needs a human. Every conversation is logged against the customer record, so nothing lives in someone's personal text messages.</p>
+        <div class="checks" style="margin-top:24px">
+          <div class="check" style="color:rgba(255,255,255,.82)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Every inquiry answered, no matter the hour</div>
+          <div class="check" style="color:rgba(255,255,255,.82)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Anything urgent escalated straight to you and Jasper</div>
+          <div class="check" style="color:rgba(255,255,255,.82)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Full conversation attached to the lead record</div>
+          <div class="check" style="color:rgba(255,255,255,.82)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>English and Spanish handled natively</div>
+        </div>
+      </div>
+      <div class="feed rv rv-d1">
+        <h4>Today, handled for you</h4>
+        <div class="frow"><div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div><b>Inspection booked, Stone Oak</b><small>Missed call at 9:41 PM turned into Thursday 9:00 AM</small></div><span class="ftime">9:44 PM</span></div>
+        <div class="frow"><div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div><b>Denied claim captured</b><small>Reinspection scheduled inside the 24-hour guarantee</small></div><span class="ftime">11:41 PM</span></div>
+        <div class="frow"><div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div><b>Hail in ZIP 78258</b><small>Storm Plan members contacted proactively</small></div><span class="ftime">7:58 PM</span></div>
+        <div class="frow"><div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><b>Commercial leak escalated</b><small>Riverview Business Park, crew paged, you were notified</small></div><span class="ftime">2:06 AM</span></div>
+        <div class="frow"><div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div><b>New 5.0 Google review</b><small>Response drafted in your voice, waiting on approval</small></div><span class="ftime">4:12 PM</span></div>
+      </div>
+    </div>
+    <div class="scene-tag" style="margin-top:24px">Illustrative feed</div>
+  </div>
+</section>
+
+<!-- ============ WHAT IT HANDLES ============ -->
+<section class="sec dark-sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker" style="color:var(--gold)">What the layer covers</span>
+      <h2>The conversations, handled.</h2>
+      <p class="lead">Not a replacement for your team. The repetitive front end of every inquiry, so your people spend their day on roofs and adjusters instead of playing phone tag.</p>
+    </div>
+    <div class="bgrid">
+      <div class="bx rv"><div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Website chat</h3><p>The widget on every page of the new site. Answers questions, qualifies the job, books the inspection, day or night.</p></div>
+      <div class="bx rv rv-d1"><div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><h3>Missed call text back</h3><p>Every unanswered call gets an immediate text. The caller stays yours instead of dialing the next roofer.</p></div>
+      <div class="bx rv rv-d2"><div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><h3>Booking</h3><p>Inspections placed straight onto the calendar, with confirmations and reminders sent automatically.</p></div>
+      <div class="bx rv"><div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3>Follow up that does not stop</h3><p>The quote that went quiet, the homeowner who said "call me after the holidays." Followed up on schedule, every time.</p></div>
+      <div class="bx rv rv-d1"><div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><h3>Reviews</h3><p>Review requests sent after completed jobs, and draft responses written in your voice for you to approve.</p></div>
+      <div class="bx rv rv-d2"><div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><circle cx="12" cy="12" r="10"/></svg></div><h3>English and Spanish</h3><p>Handled natively in both, which matters in San Antonio. Your reviews already include Spanish-speaking customers.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HONESTY ============ -->
+<section class="sec dark-sec">
+  <div class="wrap">
+    <div class="honest rv">
+      <b>What is real on this page and what is not.</b><br><br>
+      Every conversation shown here is scripted to illustrate how the layer behaves. They are not recordings of live traffic. The website itself is a working design build. The reviews on it are your real Google reviews, all 57, pulled from your Business Profile. The claim figures, certifications and service details are taken from your current site.<br><br>
+      To go live, the phone and messaging side needs your own sub-account and carrier registration for business texting, which is paperwork we handle together during onboarding. Nothing on this page assumes work that has already been done.
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-band">
+  <div class="hero-media"><img src="assets/sa-class3-finished-2.jpeg" alt="Completed roof, San Antonio"></div>
+  <div class="cta-shade"></div>
+  <div class="wrap rv">
+    <h2>The site brings them in.<br>This makes sure someone answers.</h2>
+    <p>Walk the website first, then come back to this page. The difference between the two is the difference between a brochure and a business that never misses.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-red" href="index.html">View the website</a>
+      <a class="btn btn-glass" href="#scenes">Replay the scenes</a>
+    </div>
+  </div>
+</section>
+
+<div class="d-foot">Prepared for Texas Roof Guardians &middot; concept demonstration</div>
+
+<script>
+window.PAGE = {
+  key: "ai-demo.html",
+  standalone: true,
+  chatDelay: 9000,
+  chat: [
+    {ai:"This is the same chat widget that sits on every page of the new site. Try the buttons below, it behaves exactly like this for your customers.", d:1800},
+    {chips:["Storm damage","My roof is leaking","I need a quote"], pick:1, t:1600},
+    {user:"My roof is leaking after last night's storm"},
+    {ai:"Sorry to hear that. Is water actively coming in right now, or is it a stain on the ceiling?", d:1600},
+    {user:"Active drip in the hallway"},
+    {ai:"Understood, that moves you up the queue. What's the property address, and is anyone home tomorrow morning?", d:1700},
+    {user:"Yes, mornings are fine"},
+    {ai:"Booked. And if it gets worse overnight, call the storm line and a person picks up.", card:{icon:"cal", title:"Emergency inspection · tomorrow AM", sub:"Photo documentation for your claim included"}, d:1600}
+  ]
+};
+</script>
+<script src="assets/reviews.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

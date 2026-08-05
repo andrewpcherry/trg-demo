@@ -68,7 +68,7 @@
   /* ---------- footer ---------- */
   function footHtml() {
     return '<footer><div class="wrap">' +
-      '<div class="demo-tag"><b>Concept preview.</b> This page is a design and AI concept demo prepared by RequityAI for Texas Roof Guardians. Every conversation shown is a scripted illustration of how the AI team member handles real inquiries. Reviews shown are real Google reviews from the Texas Roof Guardians Business Profile (5.0, 57 reviews).</div>' +
+      '<div class="demo-tag"><b>Design preview.</b> Concept build of the Texas Roof Guardians website. Reviews shown are real Google reviews from the Texas Roof Guardians Business Profile (5.0, 57 reviews). Chat conversations are scripted illustrations.</div>' +
       '<div class="f-grid">' +
       '<div><img src="assets/logo.png" alt="Texas Roof Guardians"><p>San Antonio’s roofing, storm damage and insurance claim specialists. Also serving Austin and all of Central Texas.</p></div>' +
       '<div><h4>Services</h4><ul><li><a href="residential.html">Residential Roofing</a></li><li><a href="commercial.html">Commercial Roofing</a></li><li><a href="insurance-claims.html">Insurance Claims</a></li><li><a href="storm-protection-plan.html">Storm Protection Plan</a></li><li><a href="financing.html">Roof Financing</a></li><li><a href="solar.html">Solar &amp; Energy</a></li></ul></div>' +
@@ -96,10 +96,10 @@
   function chatHtml() {
     return '<button class="cw-btn" id="cwBtn" aria-label="Chat with us">' + ic(I.chat) + '<span class="cw-ping"></span></button>' +
       '<div class="cw" id="cw"><div class="cw-head"><div class="cw-ava"><img src="assets/logo.png" alt=""></div>' +
-      '<div><b>Texas Roof Guardians</b><small><span class="dot"></span> AI team member · replies in seconds</small></div>' +
+      '<div><b>Texas Roof Guardians</b><small><span class="dot"></span> Online now · typically replies in seconds</small></div>' +
       '<button class="cw-x" id="cwX" aria-label="Close">&times;</button></div>' +
       '<div class="cw-body" id="cwBody"></div>' +
-      '<div class="cw-note">Scripted preview of the Guardian AI concierge · available 24/7 in every language</div>' +
+      '<div class="cw-note">Conversation preview</div>' +
       '<div class="cw-foot"><div class="fake-in">Type a message&hellip;</div>' + ic(I.send) + '</div></div>';
   }
 
@@ -305,8 +305,11 @@
 
   /* ---------- boot ---------- */
   document.addEventListener('DOMContentLoaded', function () {
-    document.body.insertAdjacentHTML('afterbegin', navHtml());
-    document.body.insertAdjacentHTML('beforeend', footHtml() + chatHtml());
+    if (!PAGE.standalone) {
+      document.body.insertAdjacentHTML('afterbegin', navHtml());
+      document.body.insertAdjacentHTML('beforeend', footHtml());
+    }
+    document.body.insertAdjacentHTML('beforeend', chatHtml());
     var b = document.getElementById('burger'), m = document.getElementById('mnav'), mx = document.getElementById('mnavx');
     if (b) b.addEventListener('click', function () { m.classList.add('open'); });
     if (mx) mx.addEventListener('click', function () { m.classList.remove('open'); });
