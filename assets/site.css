@@ -181,7 +181,7 @@ h3{font-size:1.22rem;color:var(--navy-ink)}
 .ops-step.live .os-ic svg{stroke:#fff}
 .ops-step.done .os-ic{background:var(--green);border-color:var(--green)}
 .ops-step.done .os-ic svg{stroke:#fff}
-.ops-step b{font-family:var(--disp);font-weight:500;text-transform:uppercase;letter-spacing:.08em;font-size:.92rem;display:block}
+.ops-step b{font-family:var(--disp);font-weight:500;text-transform:uppercase;letter-spacing:.08em;font-size:.92rem;display:block;padding-right:74px}
 .ops-step small{color:rgba(255,255,255,.6);font-size:.82rem;line-height:1.5;display:block;margin-top:3px}
 .ops-step .os-t{font-size:.7rem;color:var(--gold);font-family:var(--disp);letter-spacing:.1em;position:absolute;right:18px;top:19px}
 
