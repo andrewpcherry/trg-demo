@@ -33,7 +33,7 @@
     ["projects.html", "Projects"]
   ];
   var moreLinks = [
-    ["https://andrewpcherry.github.io/trg-funnel/", "60-Second Roof Assessment"],
+    ["roof-assessment.html", "60-Second Roof Assessment"],
     ["guardian-care.html", "Guardian Commercial Care"],
     ["property-managers.html", "Property Managers"],
     ["hoa.html", "HOA Division"],
@@ -70,7 +70,7 @@
     return '<footer><div class="wrap">' +
       '<div class="f-grid">' +
       '<div><img src="assets/logo.png" alt="Texas Roof Guardians"><p>San Antonio’s roofing, storm damage and insurance claim specialists. Also serving Austin and all of Central Texas.</p></div>' +
-      '<div><h4>Services</h4><ul><li><a href="https://andrewpcherry.github.io/trg-funnel/">60-Second Roof Assessment</a></li><li><a href="residential.html">Residential Roofing</a></li><li><a href="commercial.html">Commercial Roofing</a></li><li><a href="insurance-claims.html">Insurance Claims</a></li><li><a href="storm-protection-plan.html">Storm Protection Plan</a></li><li><a href="financing.html">Roof Financing</a></li><li><a href="solar.html">Solar &amp; Energy</a></li></ul></div>' +
+      '<div><h4>Services</h4><ul><li><a href="roof-assessment.html">60-Second Roof Assessment</a></li><li><a href="residential.html">Residential Roofing</a></li><li><a href="commercial.html">Commercial Roofing</a></li><li><a href="insurance-claims.html">Insurance Claims</a></li><li><a href="storm-protection-plan.html">Storm Protection Plan</a></li><li><a href="financing.html">Roof Financing</a></li><li><a href="solar.html">Solar &amp; Energy</a></li></ul></div>' +
       '<div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="service-areas.html">Service Areas</a></li><li><a href="hoa.html">HOA Division</a></li><li><a href="property-managers.html">Property Managers</a></li><li><a href="faq.html">FAQ</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li></ul></div>' +
       '<div><h4>Contact</h4><ul><li><a href="' + TEL + '">' + PHONE + '</a></li><li>info@txroofguardians.com</li><li>San Antonio, TX</li><li>Serving Austin &amp; Central Texas</li><li>Mon to Sat 7am to 7pm · Emergency 24/7</li></ul></div>' +
       '</div><div class="f-bot"><span>&copy; 2026 Texas Roof Guardians. Licensed &amp; Insured in Texas.</span><span><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms &amp; Conditions</a></span></div>' +
@@ -302,6 +302,16 @@
     }
   }
 
+  /* ---------- funnel integration ---------- */
+  function integrateAssessmentLinks() {
+    document.querySelectorAll('a').forEach(function (a) {
+      var href = a.getAttribute('href');
+      if (href === 'https://andrewpcherry.github.io/trg-funnel/' || href === '/trg-funnel/' || href === '../trg-funnel/') {
+        a.setAttribute('href', 'roof-assessment.html');
+      }
+    });
+  }
+
   /* ---------- boot ---------- */
   document.addEventListener('DOMContentLoaded', function () {
     if (!PAGE.standalone) {
@@ -309,6 +319,7 @@
       document.body.insertAdjacentHTML('beforeend', footHtml());
     }
     document.body.insertAdjacentHTML('beforeend', chatHtml());
+    integrateAssessmentLinks();
     var b = document.getElementById('burger'), m = document.getElementById('mnav'), mx = document.getElementById('mnavx');
     if (b) b.addEventListener('click', function () { m.classList.add('open'); });
     if (mx) mx.addEventListener('click', function () { m.classList.remove('open'); });
