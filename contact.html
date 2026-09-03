@@ -28,7 +28,6 @@
   </div>
 </header>
 
-
 <section class="sec">
   <div class="wrap">
     <div class="split" style="align-items:start">
@@ -46,20 +45,37 @@
       <div class="rv rv-d1">
         <div class="fcard" style="padding:34px">
           <h3 style="margin-bottom:18px">Request a callback</h3>
-          <div style="display:flex;flex-direction:column;gap:12px">
-            <input placeholder="Full name" style="padding:13px 16px;border:1.5px solid var(--line);border-radius:10px;font-family:inherit;font-size:.9rem">
-            <input placeholder="Phone" style="padding:13px 16px;border:1.5px solid var(--line);border-radius:10px;font-family:inherit;font-size:.9rem">
-            <input placeholder="Property address" style="padding:13px 16px;border:1.5px solid var(--line);border-radius:10px;font-family:inherit;font-size:.9rem">
-            <select style="padding:13px 16px;border:1.5px solid var(--line);border-radius:10px;font-family:inherit;font-size:.9rem;color:var(--body)">
+          <form id="callbackForm" onsubmit="event.preventDefault();alert('Thanks — your request is ready to be connected to the Texas Roof Guardians GoHighLevel workflow.');" style="display:flex;flex-direction:column;gap:12px">
+            <label style="font-size:.78rem;font-weight:700">Full name
+              <input name="name" autocomplete="name" required placeholder="Full name" style="width:100%;margin-top:5px;padding:13px 16px;border:1.5px solid var(--line);border-radius:10px;font-family:inherit;font-size:.9rem">
+            </label>
+            <label style="font-size:.78rem;font-weight:700">Phone
+              <input name="phone" type="tel" autocomplete="tel" required placeholder="Phone" style="width:100%;margin-top:5px;padding:13px 16px;border:1.5px solid var(--line);border-radius:10px;font-family:inherit;font-size:.9rem">
+            </label>
+            <label style="font-size:.78rem;font-weight:700">Property address
+              <input name="address" autocomplete="street-address" placeholder="Property address" style="width:100%;margin-top:5px;padding:13px 16px;border:1.5px solid var(--line);border-radius:10px;font-family:inherit;font-size:.9rem">
+            </label>
+            <select name="request_type" style="padding:13px 16px;border:1.5px solid var(--line);border-radius:10px;font-family:inherit;font-size:.9rem;color:var(--body)">
               <option>Schedule a free inspection</option>
               <option>Request a claim review</option>
               <option>Join the Storm Protection Plan</option>
               <option>Commercial inquiry</option>
               <option>Emergency repair</option>
             </select>
-            <button class="btn btn-red" style="width:100%" onclick="alert('Design preview. On the live site this form reaches the team immediately.')">Send Request</button>
-            <small style="font-size:.68rem;color:var(--mut);line-height:1.5">Design preview. SMS consent handled per carrier requirements; reply STOP to opt out.</small>
-          </div>
+
+            <label style="display:flex;gap:10px;align-items:flex-start;font-size:.72rem;color:var(--mut);line-height:1.55;padding:8px 0">
+              <input type="checkbox" name="sms_service_consent" value="yes" style="margin-top:3px;flex:none;width:16px;height:16px">
+              <span>I agree to receive conversational and informational text messages from <strong>Texas Roof Guardians</strong> about my inquiry, appointments, estimates, project or claim-related services. Message frequency varies. Message and data rates may apply. Reply <strong>STOP</strong> to opt out and <strong>HELP</strong> for help. Consent is not a condition of purchase.</span>
+            </label>
+
+            <label style="display:flex;gap:10px;align-items:flex-start;font-size:.72rem;color:var(--mut);line-height:1.55;padding:4px 0 8px">
+              <input type="checkbox" name="sms_marketing_consent" value="yes" style="margin-top:3px;flex:none;width:16px;height:16px">
+              <span>I also agree to receive occasional marketing or promotional text messages from <strong>Texas Roof Guardians</strong>, including roofing offers, maintenance reminders and storm-related promotions. Message frequency varies. Message and data rates may apply. Reply <strong>STOP</strong> to opt out and <strong>HELP</strong> for help. Consent is not a condition of purchase.</span>
+            </label>
+
+            <button class="btn btn-red" type="submit" style="width:100%">Send Request</button>
+            <small style="font-size:.68rem;color:var(--mut);line-height:1.55">The SMS checkboxes are optional and unchecked by default. You can submit this request without agreeing to receive text messages. See our <a href="privacy.html" style="text-decoration:underline">Privacy Policy</a> and <a href="terms.html" style="text-decoration:underline">Terms &amp; Conditions</a>.</small>
+          </form>
         </div>
       </div>
     </div>
@@ -72,7 +88,6 @@
     <div class="rev-marquee"><div class="rev-track" id="revTrack"></div></div>
   </div>
 </section>
-
 
 <section class="cta-band">
   <div class="hero-media"><img src="assets/sa-class3-finished-2.jpeg" alt="Completed roof by Texas Roof Guardians"></div>
@@ -90,7 +105,7 @@
 </section>
 
 <script>
-window.PAGE = { key: "contact.html", chat: [{"ai": "You made it to the contact page, but you don't have to fill in a form. We can handle it right here. What do you need?", "d": 1600}, {"chips": ["Free inspection", "Claim review", "Emergency", "Hablo espanol"], "pick": 3, "t": 1600}, {"user": "Hablo espanol, prefiero continuar en espanol"}, {"ai": "Claro que si, con mucho gusto. Cuentenos, que esta pasando con su techo?", "d": 1700}, {"user": "Se volaron unas tejas con el viento de anoche"}, {"ai": "Entendido. Podemos enviar un inspector esta semana, la inspeccion es gratis y le entregamos un reporte con fotos. Le parece bien el jueves por la manana?", "d": 2000}, {"user": "Si, perfecto"}, {"ai": "Listo, jueves por la manana. Le llega la confirmacion por mensaje de texto. Que descanse!", "card": {"icon": "cal", "title": "Inspeccion gratis \u00b7 jueves AM", "sub": "Reporte con fotos incluido"}, "d": 1700}] };
+window.PAGE = { key: "contact.html", chat: [{"ai": "You made it to the contact page, but you don't have to fill in a form. We can handle it right here. What do you need?", "d": 1600}, {"chips": ["Free inspection", "Claim review", "Emergency", "Hablo espanol"], "pick": 3, "t": 1600}, {"user": "Hablo espanol, prefiero continuar en espanol"}, {"ai": "Claro que si, con mucho gusto. Cuentenos, que esta pasando con su techo?", "d": 1700}, {"user": "Se volaron unas tejas con el viento de anoche"}, {"ai": "Entendido. Podemos enviar un inspector esta semana, la inspeccion es gratis y le entregamos un reporte con fotos. Le parece bien el jueves por la manana?", "d": 2000}, {"user": "Si, perfecto"}, {"ai": "Listo, jueves por la manana. Le llega la confirmacion por mensaje de texto. Que descanse!", "card": {"icon": "cal", "title": "Inspeccion gratis · jueves AM", "sub": "Reporte con fotos incluido"}, "d": 1700}] };
 </script>
 <script src="assets/reviews.js"></script>
 <script src="assets/site.js"></script>
