@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>60-Second Roof Assessment | Texas Roof Guardians</title>
+<meta name="description" content="Answer a few quick questions about your roof and get the right next step from Texas Roof Guardians.">
+<style>
+html,body{margin:0;width:100%;height:100%;background:#fff;overflow:hidden}
+#assessmentFrame{display:block;width:100%;height:100vh;border:0;background:#fff}
+.fallback{position:fixed;inset:auto 14px 14px 14px;background:#fff;border:1px solid #ddd;border-radius:10px;padding:10px 14px;font:13px/1.4 Arial,sans-serif;box-shadow:0 5px 20px rgba(0,0,0,.12);z-index:10}
+.fallback a{font-weight:700;color:#024e7c}
+</style>
+</head>
+<body>
+<iframe id="assessmentFrame" title="Texas Roof Guardians 60-Second Roof Assessment" src="../trg-funnel/"></iframe>
+<noscript><div class="fallback">Please enable JavaScript or <a href="../trg-funnel/">open the roof assessment here</a>.</div></noscript>
+<script>
+(function(){
+  var frame=document.getElementById('assessmentFrame');
+  var MAIN='/trg-demo/index.html';
+  var PRIVACY='/trg-demo/privacy.html';
+  var TERMS='/trg-demo/terms.html';
+
+  function topLink(a,href){
+    if(!a)return;
+    a.setAttribute('href',href);
+    a.setAttribute('target','_top');
+  }
+
+  function enhance(){
+    var doc;
+    try{doc=frame.contentDocument||frame.contentWindow.document;}catch(e){return;}
+    if(!doc||!doc.body)return;
+
+    /* Make the funnel behave as a genuine extension of the main TRG website. */
+    topLink(doc.querySelector('header.site .logo'),MAIN);
+
+    var headCta=doc.querySelector('header.site .head-cta');
+    if(headCta&&!doc.getElementById('trg-main-site-link')){
+      var home=doc.createElement('a');
+      home.id='trg-main-site-link';
+      home.href=MAIN;
+      home.target='_top';
+      home.textContent='Main Website';
+      home.style.cssText='font-size:12px;font-weight:800;color:#00416a;text-decoration:none;white-space:nowrap';
+      headCta.insertBefore(home,headCta.firstChild);
+    }
+
+    var footer=doc.querySelector('footer .wrap');
+    if(footer&&!doc.getElementById('trg-integrated-legal')){
+      var legal=doc.createElement('div');
+      legal.id='trg-integrated-legal';
+      legal.style.cssText='width:100%;padding-top:14px;margin-top:6px;border-top:1px solid rgba(255,255,255,.12);font-size:12px;line-height:1.7';
+      legal.innerHTML='<a href="'+MAIN+'" target="_top" style="color:#d7e2ec">Texas Roof Guardians Main Website</a> &nbsp;·&nbsp; <a href="'+PRIVACY+'" target="_top" style="color:#d7e2ec">Privacy Policy</a> &nbsp;·&nbsp; <a href="'+TERMS+'" target="_top" style="color:#d7e2ec">Terms &amp; Conditions</a>';
+      footer.appendChild(legal);
+    }
+
+    /* The lead form is created after the quiz, so enhance it whenever it appears. */
+    doc.querySelectorAll('form.lead-form').forEach(function(form){
+      if(form.dataset.a2pEnhanced==='1')return;
+      form.dataset.a2pEnhanced='1';
+
+      var button=form.querySelector('button[type="submit"],.btn');
+      var consent=doc.createElement('div');
+      consent.className='full';
+      consent.style.cssText='display:grid;gap:10px;margin-top:2px';
+      consent.innerHTML=''
+        +'<label style="display:flex;align-items:flex-start;gap:10px;font-size:11.5px;line-height:1.55;color:#4f5661;text-transform:none;letter-spacing:0;font-weight:600">'
+        +'<input type="checkbox" name="sms_service_consent" value="yes" style="margin-top:3px;width:16px;height:16px;flex:none">'
+        +'<span>I agree to receive conversational and informational text messages from <strong>Texas Roof Guardians</strong> about my inquiry, appointment, estimate, project or claim-related services. Message frequency varies. Message and data rates may apply. Reply <strong>STOP</strong> to opt out and <strong>HELP</strong> for help. Consent is not a condition of purchase.</span></label>'
+        +'<label style="display:flex;align-items:flex-start;gap:10px;font-size:11.5px;line-height:1.55;color:#4f5661;text-transform:none;letter-spacing:0;font-weight:600">'
+        +'<input type="checkbox" name="sms_marketing_consent" value="yes" style="margin-top:3px;width:16px;height:16px;flex:none">'
+        +'<span>I also agree to receive occasional marketing or promotional text messages from <strong>Texas Roof Guardians</strong>, including roofing offers, maintenance reminders and storm-related promotions. Message frequency varies. Message and data rates may apply. Reply <strong>STOP</strong> to opt out and <strong>HELP</strong> for help. Consent is not a condition of purchase.</span></label>'
+        +'<div style="font-size:11px;color:#7b838d;line-height:1.55">Both SMS choices are optional and unchecked by default. You can submit without agreeing to receive texts. <a href="'+PRIVACY+'" target="_top" style="color:#024e7c;font-weight:700">Privacy Policy</a> · <a href="'+TERMS+'" target="_top" style="color:#024e7c;font-weight:700">Terms &amp; Conditions</a></div>';
+      if(button)form.insertBefore(consent,button);else form.appendChild(consent);
+
+      var fine=form.querySelector('.lf-fine');
+      if(fine){fine.innerHTML='No obligation · Stays private · Not a commitment to any work';}
+    });
+  }
+
+  frame.addEventListener('load',function(){
+    enhance();
+    try{
+      var doc=frame.contentDocument||frame.contentWindow.document;
+      var obs=new MutationObserver(enhance);
+      obs.observe(doc.documentElement,{childList:true,subtree:true});
+    }catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
