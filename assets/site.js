@@ -93,13 +93,13 @@
 
   /* ---------- chat widget ---------- */
   function chatHtml() {
-    return '<button class="cw-btn" id="cwBtn" aria-label="Chat with us">' + ic(I.chat) + '<span class="cw-ping"></span></button>' +
+    return '<button class="cw-btn" id="cwBtn" aria-label="View conversation example">' + ic(I.chat) + '<span class="cw-ping"></span></button>' +
       '<div class="cw" id="cw"><div class="cw-head"><div class="cw-ava"><img src="assets/logo.png" alt=""></div>' +
-      '<div><b>Texas Roof Guardians</b><small><span class="dot"></span> Online now · typically replies in seconds</small></div>' +
+      '<div><b>Texas Roof Guardians</b><small><span class="dot"></span> Example conversation</small></div>' +
       '<button class="cw-x" id="cwX" aria-label="Close">&times;</button></div>' +
       '<div class="cw-body" id="cwBody"></div>' +
       '<div class="cw-note">Conversation preview</div>' +
-      '<div class="cw-foot"><div class="fake-in">Type a message&hellip;</div>' + ic(I.send) + '</div></div>';
+      '<div class="cw-foot"><a class="fake-in" href="contact.html">Request a callback</a>' + ic(I.send) + '</div></div>';
   }
 
   var chatPlayed = false;
@@ -312,6 +312,27 @@
     });
   }
 
+  // Preserve campaign attribution through website navigation and the native intake form.
+  // No contact data, consent values, or persistent browser storage are used here.
+  function preserveCampaignAttribution() {
+    var incoming = new URLSearchParams(window.location.search);
+    var keys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+    document.querySelectorAll('a[href], iframe[data-form-id]').forEach(function (element) {
+      var attribute = element.tagName === 'IFRAME' ? 'src' : 'href';
+      var raw = element.getAttribute(attribute);
+      if (!raw || raw.charAt(0) === '#') return;
+      var url;
+      try { url = new URL(raw, window.location.href); } catch (_) { return; }
+      var nativeIntake = url.origin === 'https://api.leadconnectorhq.com' && url.pathname === '/widget/form/HkCdW4ow7HkRHJhuPckV';
+      if (url.origin !== window.location.origin && !nativeIntake) return;
+      keys.forEach(function (key) {
+        var value = incoming.get(key);
+        if (value) url.searchParams.set(key, value.slice(0,200));
+      });
+      if (url.toString() !== new URL(raw, window.location.href).toString()) element.setAttribute(attribute, url.toString());
+    });
+  }
+
   /* ---------- boot ---------- */
   document.addEventListener('DOMContentLoaded', function () {
     if (!PAGE.standalone) {
@@ -320,6 +341,7 @@
     }
     document.body.insertAdjacentHTML('beforeend', chatHtml());
     integrateAssessmentLinks();
+    preserveCampaignAttribution();
     var b = document.getElementById('burger'), m = document.getElementById('mnav'), mx = document.getElementById('mnavx');
     if (b) b.addEventListener('click', function () { m.classList.add('open'); });
     if (mx) mx.addEventListener('click', function () { m.classList.remove('open'); });
