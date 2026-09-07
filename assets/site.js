@@ -7,6 +7,13 @@
   var PHONE = "830-228-6123";
   var TEL = "tel:8302286123";
 
+  /* ---------- GHL Conversation AI chat widget ----------
+     When TRG's Conversation AI widget is created in the GHL sub-account,
+     paste its widget-id below and the real widget loads on every page.
+     The concept "Conversation preview" chat then stands down so the two
+     never overlap. Leave empty to keep the current behaviour. */
+  var GHL_CHAT_WIDGET_ID = '';
+
   /* ---------- icons ---------- */
   function ic(d, extra) {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ' + (extra || '') + '>' + d + '</svg>';
@@ -302,6 +309,23 @@
     }
   }
 
+  /* ---------- GHL widget mount ---------- */
+  function mountGhlChat() {
+    if (!GHL_CHAT_WIDGET_ID) return false;
+    var s = document.createElement('script');
+    s.src = 'https://widgets.leadconnectorhq.com/loader.js';
+    s.async = true;
+    s.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
+    s.setAttribute('data-widget-id', GHL_CHAT_WIDGET_ID);
+    document.body.appendChild(s);
+    /* Stand down the concept chat so the two never overlap. */
+    var btn = document.getElementById('cwBtn');
+    var cw = document.getElementById('cw');
+    if (btn) btn.remove();
+    if (cw) cw.remove();
+    return true;
+  }
+
   /* ---------- funnel integration ---------- */
   function integrateAssessmentLinks() {
     document.querySelectorAll('a').forEach(function (a) {
@@ -318,13 +342,16 @@
       document.body.insertAdjacentHTML('afterbegin', navHtml());
       document.body.insertAdjacentHTML('beforeend', footHtml());
     }
-    document.body.insertAdjacentHTML('beforeend', chatHtml());
+    var ghlMounted = mountGhlChat();
+    if (!ghlMounted) {
+      document.body.insertAdjacentHTML('beforeend', chatHtml());
+    }
     integrateAssessmentLinks();
     var b = document.getElementById('burger'), m = document.getElementById('mnav'), mx = document.getElementById('mnavx');
     if (b) b.addEventListener('click', function () { m.classList.add('open'); });
     if (mx) mx.addEventListener('click', function () { m.classList.remove('open'); });
     renderMarquee();
-    bindChat();
+    if (!ghlMounted) bindChat();
     runToasts();
     runSms();
     runOps();
