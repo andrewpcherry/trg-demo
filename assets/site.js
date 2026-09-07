@@ -8,11 +8,10 @@
   var TEL = "tel:8302286123";
 
   /* ---------- GHL Conversation AI chat widget ----------
-     When TRG's Conversation AI widget is created in the GHL sub-account,
-     paste its widget-id below and the real widget loads on every page.
-     The concept "Conversation preview" chat then stands down so the two
-     never overlap. Leave empty to keep the current behaviour. */
-  var GHL_CHAT_WIDGET_ID = '';
+     TRG's Conversation AI widget ("TRG Website Receptionist" agent) loads on
+     every page and the concept "Conversation preview" chat stands down so the
+     two never overlap. */
+  var GHL_CHAT_WIDGET_ID = '6a9ef7fc7e179c4b668fd3b9';
 
   /* ---------- icons ---------- */
   function ic(d, extra) {
