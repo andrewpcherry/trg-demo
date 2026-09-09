@@ -9,3 +9,4 @@ hero: /assets/commercial-roof.webp
 ---
 The project was phased around shipping and tenant schedules so the building could remain operational and watertight throughout the commercial re-roof.
 
+Crews coordinated daily dry-in and membrane installation around active operations, preventing disruption to the tenants and protecting the structure at the end of each workday.

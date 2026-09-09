@@ -9,3 +9,4 @@ hero: /assets/sass-1.jpg
 ---
 The complex roofline was finished with concealed-fastener panels and custom hip, ridge and valley detailing for a clean architectural profile.
 
+Project documentation follows the re-roof from underlayment and dry-in through completed charcoal panels and the final detail work across multiple gables, hips and valleys.

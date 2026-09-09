@@ -9,3 +9,4 @@ hero: /assets/oc-5.jpeg
 ---
 This Owens Corning shingle system combines a distinctive white finish with high reflectivity and warranty coverage from a preferred contractor installation.
 
+The light-colored roof helps reflect heat, can reduce attic temperatures, and gives the home a distinctive street presence.

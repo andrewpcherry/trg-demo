@@ -9,3 +9,4 @@ hero: /assets/stone-oak-1.jpeg
 ---
 This Stone Oak replacement uses a high-definition gray architectural shingle across a complex multi-slope roof, with consistent ridge and ventilation detailing.
 
+The drone documentation captures the completed installation from the front elevation, rear slopes and overhead, showing the roof geometry and consistent finish across hips, ridges and steep transitions.

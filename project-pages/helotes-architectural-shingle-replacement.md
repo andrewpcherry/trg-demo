@@ -9,3 +9,4 @@ hero: /assets/helotes-4.jpeg
 ---
 This Helotes replacement features multi-tonal architectural shingles installed over a complete underlayment and flashing system.
 
+The photo documentation follows the work from tear-off and dry-in through shingle installation and final completion, showing the workmanship across the full roof system.

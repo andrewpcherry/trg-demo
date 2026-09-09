@@ -9,3 +9,4 @@ hero: /assets/spring-branch-4.jpg
 ---
 This standing seam metal system uses concealed-fastener panels designed for long-term performance in Hill Country wind and weather.
 
+The clean architectural profile was selected to suit the Spring Branch setting while improving durability and reducing exposed fastener maintenance.

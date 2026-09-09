@@ -9,3 +9,4 @@ hero: /assets/west-side-1.jpg
 ---
 This West Side San Antonio project used dimensional charcoal architectural shingles and was documented during installation and after completion.
 
+The finished shingle system gives the home a clean, updated profile, while the overhead production photos document the installation and final cleanup.

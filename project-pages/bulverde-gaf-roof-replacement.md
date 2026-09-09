@@ -9,3 +9,4 @@ hero: /assets/bulverde-1.jpg
 ---
 Every component of this Bulverde roof—from underlayment and starter to field shingles and ridge cap—was installed as a complete GAF roofing system.
 
+The system was installed from deck to ridge in accordance with GAF certified-contractor specifications to support enhanced manufacturer warranty eligibility.

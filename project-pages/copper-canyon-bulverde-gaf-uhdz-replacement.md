@@ -9,3 +9,6 @@ hero: /assets/copper-canyon-3.jpeg
 ---
 This Copper Canyon roof was rebuilt as a complete GAF system after tear-off, deck inspection and the required repairs.
 
+The deck was inspected and re-nailed where needed. GAF FeltBuster synthetic underlayment was installed across the field, while StormGuard peel-and-stick reinforced valleys, eaves and penetrations.
+
+GAF Timberline UHDZ architectural shingles and Seal-A-Ridge cap finished the system and qualified the homeowner for an enhanced GAF system warranty.
