@@ -31,27 +31,27 @@
 
   /* ---------- nav ---------- */
   var links = [
-    ["residential.html", "Residential"],
-    ["commercial.html", "Commercial"],
-    ["insurance-claims.html", "Claims"],
-    ["storm-protection-plan.html", "Storm Plan"],
-    ["solar.html", "Solar"],
-    ["projects.html", "Projects"]
+    ["/residential", "Residential", "residential.html"],
+    ["/commercial", "Commercial", "commercial.html"],
+    ["/insurance-claims", "Claims", "insurance-claims.html"],
+    ["/storm-protection-plan", "Storm Plan", "storm-protection-plan.html"],
+    ["/solar", "Solar", "solar.html"],
+    ["/projects", "Projects", "projects.html"]
   ];
   var moreLinks = [
-    ["roof-assessment.html", "60-Second Roof Assessment"],
-    ["guardian-care.html", "Guardian Commercial Care"],
-    ["property-managers.html", "Property Managers"],
-    ["hoa.html", "HOA Division"],
-    ["financing.html", "Financing"],
-    ["service-areas.html", "Service Areas"],
-    ["about.html", "About"],
-    ["faq.html", "FAQ"],
-    ["contact.html", "Contact"]
+    ["/roof-assessment", "60-Second Roof Assessment"],
+    ["/commercial/guardian-commercial-care", "Guardian Commercial Care"],
+    ["/property-managers", "Property Managers"],
+    ["/hoa", "HOA Division"],
+    ["/financing", "Financing"],
+    ["/service-areas", "Service Areas"],
+    ["/about", "About"],
+    ["/faq", "FAQ"],
+    ["/contact", "Contact"]
   ];
   function navHtml() {
     var l = links.map(function (x) {
-      var on = PAGE.key === x[0] ? ' class="on"' : '';
+      var on = PAGE.key === x[2] ? ' class="on"' : '';
       return '<a href="' + x[0] + '"' + on + '>' + x[1] + '</a>';
     }).join('');
     return '<div class="topbar"><div class="wrap"><div class="tb-l">' +
@@ -60,15 +60,15 @@
       '<span>' + ic(I.bolt) + ' 24/7 Storm Response</span>' +
       '</div><a href="' + TEL + '">' + PHONE + '</a></div></div>' +
       '<nav class="nav"><div class="wrap"><div class="nav-pill">' +
-      '<a class="nav-logo" href="index.html"><img src="assets/logo.png" alt="Texas Roof Guardians"></a>' +
+      '<a class="nav-logo" href="/"><img src="assets/logo.png" alt="Texas Roof Guardians"></a>' +
       '<div class="navlinks">' + l + '</div>' +
       '<div class="nav-cta"><a class="nav-phone" href="' + TEL + '">' + ic(I.phone) + '<span>' + PHONE + '</span></a>' +
-      '<a class="btn btn-red" href="contact.html">Free Inspection</a>' +
+      '<a class="btn btn-red" href="/contact">Free Inspection</a>' +
       '<button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>' +
       '</div></div></div></nav>' +
       '<div class="mnav" id="mnav"><button class="mnav-x" id="mnavx" aria-label="Close">&times;</button>' +
       links.concat(moreLinks).map(function (x) { return '<a href="' + x[0] + '">' + x[1] + '</a>'; }).join('') +
-      '<a class="btn btn-red" href="contact.html">Schedule Free Inspection</a></div>';
+      '<a class="btn btn-red" href="/contact">Schedule Free Inspection</a></div>';
   }
 
   /* ---------- footer ---------- */
@@ -76,10 +76,10 @@
     return '<footer><div class="wrap">' +
       '<div class="f-grid">' +
       '<div><img src="assets/logo.png" alt="Texas Roof Guardians"><p>San Antonio’s roofing, storm damage and insurance claim specialists. Also serving Austin and all of Central Texas.</p></div>' +
-      '<div><h4>Services</h4><ul><li><a href="roof-assessment.html">60-Second Roof Assessment</a></li><li><a href="residential.html">Residential Roofing</a></li><li><a href="commercial.html">Commercial Roofing</a></li><li><a href="insurance-claims.html">Insurance Claims</a></li><li><a href="storm-protection-plan.html">Storm Protection Plan</a></li><li><a href="financing.html">Roof Financing</a></li><li><a href="solar.html">Solar &amp; Energy</a></li></ul></div>' +
-      '<div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="service-areas.html">Service Areas</a></li><li><a href="hoa.html">HOA Division</a></li><li><a href="property-managers.html">Property Managers</a></li><li><a href="faq.html">FAQ</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li></ul></div>' +
-      '<div><h4>Contact</h4><ul><li><a href="' + TEL + '">' + PHONE + '</a></li><li>info@txroofguardians.com</li><li>San Antonio, TX</li><li>Serving Austin &amp; Central Texas</li><li>Mon to Sat 7am to 7pm · Emergency 24/7</li></ul></div>' +
-      '</div><div class="f-bot"><span>&copy; 2026 Texas Roof Guardians. Licensed &amp; Insured in Texas.</span><span><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms &amp; Conditions</a></span></div>' +
+      '<div><h4>Services</h4><ul><li><a href="/roof-assessment">60-Second Roof Assessment</a></li><li><a href="/residential">Residential Roofing</a></li><li><a href="/commercial">Commercial Roofing</a></li><li><a href="/insurance-claims">Insurance Claims</a></li><li><a href="/storm-protection-plan">Storm Protection Plan</a></li><li><a href="/financing">Roof Financing</a></li><li><a href="/solar">Solar &amp; Energy</a></li></ul></div>' +
+      '<div><h4>Company</h4><ul><li><a href="/about">About</a></li><li><a href="/projects">Projects</a></li><li><a href="/service-areas">Service Areas</a></li><li><a href="/hoa">HOA Division</a></li><li><a href="/property-managers">Property Managers</a></li><li><a href="/faq">FAQ</a></li><li><a href="/privacy">Privacy Policy</a></li><li><a href="/terms">Terms &amp; Conditions</a></li><li><a href="/sms-terms">SMS Terms</a></li></ul></div>' +
+      '<div><h4>Contact</h4><ul><li><a href="' + TEL + '">' + PHONE + '</a></li><li>info@txroofguardians.com</li><li>San Antonio, TX</li><li>Serving Austin &amp; Central Texas</li><li>Mon to Fri 8am to 6pm · Emergency storm calls anytime</li></ul></div>' +
+      '</div><div class="f-bot"><span>&copy; 2026 Texas Roof Guardians. Licensed &amp; Insured in Texas.</span><span><a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms &amp; Conditions</a> · <a href="/sms-terms">SMS Terms</a></span></div>' +
       '</div></footer>';
   }
 
@@ -301,7 +301,7 @@
     if (bar) {
       var io2 = new IntersectionObserver(function (es) {
         es.forEach(function (e) {
-          if (e.isIntersecting) { bar.style.width = '7.9%'; io2.disconnect(); }
+          if (e.isIntersecting) { bar.style.width = '8.49%'; io2.disconnect(); }
         });
       }, { threshold: 0.4 });
       io2.observe(bar);
