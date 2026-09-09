@@ -27,12 +27,14 @@ class Intake(unittest.TestCase):
     def setUp(self):
         self.context = self.browser.new_context()
         self.events=[]
+        self.sdk_loads=0
         self.mode='ok'
         def route(r):
             u=r.request.url
             if urlparse(u).path.endswith('/trg-funnel/'):
                 return r.fulfill(status=200, content_type='text/html', body=FUNNEL)
             if 'external-tracking.js' in u:
+                self.sdk_loads += 1
                 if self.mode=='blocked': return r.abort()
                 return r.fulfill(status=200, content_type='application/javascript', body=SDK)
             if '/external-tracking/events' in u:
@@ -58,6 +60,23 @@ class Intake(unittest.TestCase):
     def wait_state(self,f,state):
         from playwright.sync_api import expect
         expect(f).to_have_attribute('data-delivery-state',state,timeout=20000)
+    def test_callback_handles_partially_initialized_tracking_sdk(self):
+        self.context.add_init_script("window._lcTracking={tracker:{}}")
+        f=self.callback()
+        self.wait_state(f,'idle')
+        self.assertEqual(self.sdk_loads, 1)
+        f.locator('[name=name]').fill('TRG partial SDK QA')
+        f.locator('[name=phone]').fill('2025550191')
+        f.locator('[name=address]').fill('1 Test Roof Lane')
+        f.locator('button').click()
+        self.wait_state(f,'confirmed')
+
+    def test_callback_initializes_tracking_before_submission(self):
+        self.callback()
+        from playwright.sync_api import expect
+        expect(self.page.locator('#callbackForm')).to_have_attribute('data-delivery-state','idle')
+        self.assertEqual(self.sdk_loads, 1)
+
     def test_callback_phone_only_optional_consent_is_acknowledged(self):
         f=self.callback()
         f.locator('button').click()

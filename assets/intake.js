@@ -4,6 +4,24 @@
   const TRACKING_ID = 'tk_8f9dd5ab75ff4670812bf6dbb83cfb59';
   const ENDPOINT = 'https://backend.leadconnectorhq.com/external-tracking/events';
   let active = null;
+  let trackingLoad = null;
+  const trackerReady = () => !!(window._lcTracking?.tracker?.state?.initialized);
+  function ensureTracking() {
+    if (trackerReady()) return Promise.resolve();
+    if (trackingLoad) return trackingLoad;
+    trackingLoad = new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = 'https://link.msgsndr.com/js/external-tracking.js';
+      script.dataset.trackingId = TRACKING_ID;
+      const end = (error) => { clearInterval(poll); clearTimeout(timer); script.onerror = null; error ? reject(error) : resolve(); };
+      const poll = setInterval(() => { if (trackerReady()) end(); }, 50);
+      const timer = setTimeout(() => end(new Error('SDK timeout')), 6000);
+      script.onerror = () => end(new Error('SDK unavailable'));
+      document.body.appendChild(script);
+    });
+    trackingLoad.catch(() => { trackingLoad = null; });
+    return trackingLoad;
+  }
   const originalFetch = window.fetch.bind(window);
   window.fetch = async function (url, options) {
     let event;
@@ -53,6 +71,7 @@
     }
     form.removeAttribute('onsubmit');
     form.dataset.deliveryState = 'idle';
+    ensureTracking().catch(() => {});
     const button = form.querySelector('button');
     button.type = 'button';
     const status = document.createElement('p');
@@ -119,7 +138,6 @@
       navBacks.forEach(b => { b.disabled = true; });
       active = {form, setState};
       const attempt = active;
-      const ready = () => window._lcTracking && window._lcTracking.tracker && window._lcTracking.tracker.state.initialized;
       try {
         const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(canonical));
         receiptKey = 'trg-intake:' + Array.from(new Uint8Array(digest), b => b.toString(16).padStart(2, '0')).join('');
@@ -128,18 +146,7 @@
           setState('duplicate', 'This enquiry was already submitted or is awaiting confirmation in this browser session. Please call 830-228-6123 to check its status.');
           return;
         }
-        if (!ready()) {
-          await new Promise((resolve, reject) => {
-            const script = document.createElement('script');
-            script.src = 'https://link.msgsndr.com/js/external-tracking.js';
-            script.dataset.trackingId = TRACKING_ID;
-            const end = (error) => { clearInterval(poll); clearTimeout(timer); script.onerror = null; error ? reject(error) : resolve(); };
-            const poll = setInterval(() => { if (ready()) end(); }, 50);
-            const timer = setTimeout(() => end(new Error('SDK timeout')), 6000);
-            script.onerror = () => end(new Error('SDK unavailable'));
-            document.body.appendChild(script);
-          });
-        }
+        await ensureTracking();
       } catch (_) {
         active = null;
         controls.forEach(({control, disabled, readOnly}) => { control.disabled = disabled; control.readOnly = readOnly; });
