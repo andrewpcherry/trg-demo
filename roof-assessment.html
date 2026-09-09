@@ -14,6 +14,12 @@ html,body{margin:0;width:100%;height:100%;background:#fff;overflow:hidden}
 </head>
 <body>
 <iframe id="assessmentFrame" title="Texas Roof Guardians 60-Second Roof Assessment" src="../trg-funnel/"></iframe>
+<script>
+  (function () {
+    var frame = document.getElementById('assessmentFrame');
+    if (frame && location.search) frame.src = '../trg-funnel/' + location.search;
+  })();
+</script>
 <div class="fallback" id="assessmentFallback" style="display:none">The online assessment isn't available right now. Please <a href="contact.html">contact us</a> or call <a href="tel:8302286123">830-228-6123</a> to schedule your free inspection.</div>
 <noscript><div class="fallback">Please enable JavaScript or <a href="../trg-funnel/">open the roof assessment here</a>.</div></noscript>
 <script>

@@ -1,5 +1,6 @@
 """Isolated Chrome regression: intercepted vendor responses are TESTS, not delivery evidence."""
 import json, os, threading, unittest
+from urllib.parse import urlparse
 from pathlib import Path
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from functools import partial
@@ -29,7 +30,7 @@ class Intake(unittest.TestCase):
         self.mode='ok'
         def route(r):
             u=r.request.url
-            if u.endswith('/trg-funnel/'):
+            if urlparse(u).path.endswith('/trg-funnel/'):
                 return r.fulfill(status=200, content_type='text/html', body=FUNNEL)
             if 'external-tracking.js' in u:
                 if self.mode=='blocked': return r.abort()
@@ -159,6 +160,13 @@ class Intake(unittest.TestCase):
         f.locator('[name=phone]').press('Enter')
         self.wait_state(f,'confirmed')
         self.assertEqual(self.events[0]['formLabels']['address'],'Street Address')
+
+    def test_assessment_forwards_landing_utm_to_the_embedded_funnel(self):
+        self.page.goto(self.base+'roof-assessment.html?utm_source=qa-assessment&utm_campaign=roof-launch&utm_medium=chatgpt')
+        src=self.page.locator('#assessmentFrame').get_attribute('src')
+        self.assertIn('utm_source=qa-assessment', src)
+        self.assertIn('utm_campaign=roof-launch', src)
+        self.assertIn('utm_medium=chatgpt', src)
 
     def test_assessment_cannot_escape_pending_and_validates_zip(self):
         f=self.assessment('storm')
