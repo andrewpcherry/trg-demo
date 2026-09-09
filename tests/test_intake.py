@@ -129,12 +129,11 @@ class Intake(unittest.TestCase):
 
     def assessment(self, branch):
         self.page.goto(self.base+'roof-assessment.html?utm_source=qa-assessment')
-        frame=self.page.frame_locator('#assessmentFrame')
-        options=frame.locator('.q-opt')
+        options=self.page.locator('.q-opt')
         options.nth(['aging','solar','claim','storm','options'].index(branch)).press('Enter')
         for _ in range(4 if branch in ['aging','storm'] else 3):
             options.first.press('Enter')
-        return frame.locator('form.lead-form')
+        return self.page.locator('form.lead-form')
     def test_all_five_child_forms_preserve_roofing_qualifications(self):
         for branch in ['aging','solar','claim','storm','options']:
             with self.subTest(branch=branch):
@@ -180,12 +179,10 @@ class Intake(unittest.TestCase):
         self.wait_state(f,'confirmed')
         self.assertEqual(self.events[0]['formLabels']['address'],'Street Address')
 
-    def test_assessment_forwards_landing_utm_to_the_embedded_funnel(self):
+    def test_assessment_is_a_direct_form_on_the_landing_url(self):
         self.page.goto(self.base+'roof-assessment.html?utm_source=qa-assessment&utm_campaign=roof-launch&utm_medium=chatgpt')
-        src=self.page.locator('#assessmentFrame').get_attribute('src')
-        self.assertIn('utm_source=qa-assessment', src)
-        self.assertIn('utm_campaign=roof-launch', src)
-        self.assertIn('utm_medium=chatgpt', src)
+        self.assertEqual(self.page.locator('#assessmentFrame').count(), 0)
+        self.assertEqual(self.page.url, self.base+'roof-assessment.html?utm_source=qa-assessment&utm_campaign=roof-launch&utm_medium=chatgpt')
 
     def test_assessment_cannot_escape_pending_and_validates_zip(self):
         f=self.assessment('storm')
@@ -195,14 +192,16 @@ class Intake(unittest.TestCase):
         self.assertEqual(f.get_attribute('data-delivery-state'),'idle')
         f.locator('[name=zip]').fill('78213')
         f.locator('button').click()
-        self.assertTrue(self.page.frame_locator('#assessmentFrame').locator('.q-back').is_disabled())
+        self.assertTrue(self.page.locator('.q-back').is_disabled())
         self.wait_state(f,'confirmed')
 
-    def test_missing_child_adapter_fails_closed_with_contact_handoff(self):
+    def test_missing_assessment_adapter_fails_closed(self):
         self.context.route('**/assets/intake.js',lambda r:r.abort())
-        self.page.goto(self.base+'roof-assessment.html')
-        from playwright.sync_api import expect
-        expect(self.page.locator('#assessmentFrame')).not_to_be_visible()
-        expect(self.page.locator('.fallback a[href="contact.html"]')).to_be_visible()
+        f=self.assessment('storm')
+        for name,value in [('name','TRG Offline QA'),('phone','2025550177'),('email','offline@example.invalid'),('zip','78213')]:
+            f.locator('[name='+name+']').fill(value)
+        f.locator('button').click()
+        self.assertEqual(self.events, [])
+        self.assertIn('Request not sent', f.inner_text())
 
 if __name__=='__main__': unittest.main(verbosity=2)

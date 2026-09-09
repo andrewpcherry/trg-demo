@@ -1,121 +1,937 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>60-Second Roof Assessment | Texas Roof Guardians</title>
-<meta name="description" content="Answer a few quick questions about your roof and get the right next step from Texas Roof Guardians.">
+<title>What Should You Do About Your Roof? | Texas Roof Guardians</title>
+<meta name="description" content="Answer a few quick questions about your roof and get the right next step: a documented inspection, a claim review, or a coordinated roof and solar consultation. San Antonio, Austin and Central Texas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-html,body{margin:0;width:100%;height:100%;background:#fff;overflow:hidden}
-#assessmentFrame{display:block;width:100%;height:100vh;border:0;background:#fff}
-.fallback{position:fixed;inset:auto 14px 14px 14px;background:#fff;border:1px solid #ddd;border-radius:10px;padding:10px 14px;font:13px/1.4 Arial,sans-serif;box-shadow:0 5px 20px rgba(0,0,0,.12);z-index:10}
-.fallback a{font-weight:700;color:#024e7c}
+:root{
+  --blue:#024e7c; --blue-deep:#00416a; --blue-2:#18669a; --blue-soft:#e1f1ff;
+  --red:#be1314; --red-hover:#ab0000; --red-soft:#ffe9e5;
+  --amber:#e8940a; --amber-soft:#fdf3e0;
+  --green:#2e9e5b; --green-soft:#e6f6ec;
+  --ink:#11161f; --muted:#4f5661; --border:#dee1e7; --bg:#ffffff; --gray:#f2f3f6;
+  --radius:12px;
+  --shadow-sm:0 1px 3px rgba(17,22,31,.08);
+  --shadow-md:0 8px 24px rgba(2,78,124,.12);
+  --shadow-lg:0 20px 50px rgba(2,78,124,.18);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{display:block}
+a{color:inherit}
+.oswald{font-family:'Oswald',sans-serif}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* ---------- top trust bar ---------- */
+.topbar{background:var(--blue-deep);color:#fff;font-size:13px}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:8px;padding-bottom:8px}
+.topbar .items{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+.topbar .item{display:flex;align-items:center;gap:6px;white-space:nowrap;opacity:.95}
+.topbar svg{width:14px;height:14px;flex:none}
+.topbar a{text-decoration:none;font-weight:700}
+@media(max-width:820px){.topbar .items.right{display:none}}
+
+/* ---------- header ---------- */
+header.site{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:12px;padding-bottom:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo .mark{width:44px;height:44px}
+.logo .name{font-family:'Oswald',sans-serif;font-weight:700;line-height:1.05;color:var(--blue-deep);font-size:15px;letter-spacing:.04em;text-transform:uppercase}
+.logo .name .red{color:var(--red)}
+.head-cta{display:flex;align-items:center;gap:14px}
+.head-phone{display:flex;align-items:center;gap:8px;font-weight:800;color:var(--blue-deep);text-decoration:none;font-size:16px}
+.head-phone svg{width:16px;height:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:15px;border-radius:10px;padding:13px 24px;text-decoration:none;border:0;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s;font-family:'Open Sans',sans-serif}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 6px 18px rgba(190,19,20,.28)}
+.btn-red:hover{background:var(--red-hover);transform:translateY(-1px)}
+.btn-navy{background:var(--blue);color:#fff}
+.btn-navy:hover{background:var(--blue-deep);transform:translateY(-1px)}
+.btn-ghost{background:#fff;color:var(--blue-deep);border:2px solid var(--border)}
+.btn-ghost:hover{border-color:var(--blue-2);transform:translateY(-1px)}
+@media(max-width:640px){.head-phone span{display:none}.btn{padding:11px 18px;font-size:14px}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:
+  radial-gradient(900px 500px at 85% -10%, var(--blue-soft) 0%, transparent 60%),
+  radial-gradient(700px 400px at -10% 30%, #eef6fd 0%, transparent 55%),
+  linear-gradient(180deg,#fbfdff 0%,#f4f8fc 100%)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding-top:56px;padding-bottom:48px}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.eyebrow::before{content:"";width:28px;height:3px;background:var(--red);border-radius:2px}
+.hero h1{font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(34px,4.6vw,58px);line-height:1.06;letter-spacing:.005em;color:var(--ink);margin:18px 0 20px}
+.hero h1 .c-red{color:var(--red)}
+.hero h1 .c-blue{color:var(--blue-2)}
+.hero h1 .c-amber{color:var(--amber)}
+.hero h1 .c-green{color:var(--green)}
+.hero p.lede{font-size:18px;color:var(--muted);max-width:560px}
+.hero .ctas{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
+.hero .chips{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.chip{font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:7px 14px;border-radius:999px;background:#fff;border:1.5px solid var(--border);color:var(--blue-deep);box-shadow:var(--shadow-sm)}
+.chip.red{border-color:#f3c9c9;color:var(--red);background:#fff7f7}
+.chip.green{border-color:#c9e8d4;color:#1e7a43;background:#f4fbf7}
+
+/* hero path panel */
+.path-panel{background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow-lg);overflow:hidden}
+.path-panel .ph{background:linear-gradient(120deg,var(--blue-deep),var(--blue-2));color:#fff;padding:18px 22px}
+.path-panel .ph .t{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:16px}
+.path-panel .ph .s{font-size:12.5px;opacity:.85;margin-top:2px}
+.path-list{padding:10px}
+.path-item{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:13px 16px;margin:8px 6px;cursor:pointer;transition:border-color .15s,transform .15s,box-shadow .15s;font-family:'Open Sans',sans-serif;width:calc(100% - 12px)}
+.path-item:hover{transform:translateY(-1px);box-shadow:var(--shadow-md)}
+.path-item .ico{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none}
+.path-item .ico svg{width:20px;height:20px}
+.path-item .tx b{display:block;font-size:14.5px;color:var(--ink)}
+.path-item .tx span{font-size:12.5px;color:var(--muted)}
+.path-item .arr{margin-left:auto;color:#9aa2ad;flex:none}
+.path-item:hover .arr{color:var(--blue-2)}
+.pi-storm:hover{border-color:var(--red)} .pi-storm .ico{background:var(--red-soft);color:var(--red)}
+.pi-claim:hover{border-color:var(--blue-2)} .pi-claim .ico{background:var(--blue-soft);color:var(--blue-2)}
+.pi-aging:hover{border-color:var(--amber)} .pi-aging .ico{background:var(--amber-soft);color:var(--amber)}
+.pi-solar:hover{border-color:var(--green)} .pi-solar .ico{background:var(--green-soft);color:var(--green)}
+.pi-options:hover{border-color:var(--blue)} .pi-options .ico{background:#e8eef4;color:var(--blue)}
+@media(max-width:920px){.hero .wrap{grid-template-columns:1fr;padding-top:52px;padding-bottom:56px}}
+
+/* ---------- section scaffolding ---------- */
+section{padding:84px 0}
+section.tight{padding:64px 0}
+.sec-head{max-width:760px;margin:0 auto 48px;text-align:center}
+.sec-head.left{text-align:left;margin-left:0}
+.sec-head h2{font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(26px,3.2vw,38px);line-height:1.12;margin:14px 0 14px}
+.sec-head p{color:var(--muted);font-size:16.5px}
+.sec-head .eyebrow{justify-content:center}
+.sec-head.left .eyebrow{justify-content:flex-start}
+.alt{background:linear-gradient(180deg,#f7fafd, #f2f6fa)}
+
+/* ---------- quiz ---------- */
+#quiz{scroll-margin-top:90px}
+.quiz-shell{max-width:820px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow-lg);overflow:hidden}
+.quiz-top{background:linear-gradient(120deg,var(--blue-deep),var(--blue));color:#fff;padding:22px 30px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.quiz-top .qt{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.06em;font-weight:600;font-size:17px}
+.quiz-top .step{font-size:12.5px;font-weight:700;background:rgba(255,255,255,.16);padding:6px 12px;border-radius:999px;white-space:nowrap}
+.qbar{height:6px;background:#d8e4ee}
+.qbar i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--red),#e05a1e);transition:width .35s ease}
+.quiz-body{padding:38px 40px 42px;min-height:380px}
+@media(max-width:640px){.quiz-body{padding:26px 20px 30px}}
+.q-question{font-family:'Oswald',sans-serif;font-weight:600;font-size:clamp(21px,2.6vw,27px);line-height:1.25;margin-bottom:6px}
+.q-sub{color:var(--muted);font-size:14.5px;margin-bottom:22px}
+.q-opts{display:grid;gap:12px}
+.q-opt{display:flex;align-items:center;gap:14px;text-align:left;background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:16px 18px;font-size:15.5px;font-weight:600;color:var(--ink);cursor:pointer;transition:border-color .12s,background .12s,transform .12s;font-family:'Open Sans',sans-serif}
+.q-opt:hover{border-color:var(--accent,var(--blue-2));background:#fbfdff;transform:translateY(-1px)}
+.q-opt .dot{width:22px;height:22px;border-radius:50%;border:2px solid #c6ccd4;flex:none;transition:all .12s}
+.q-opt:hover .dot{border-color:var(--accent,var(--blue-2))}
+.q-nav{display:flex;justify-content:space-between;align-items:center;margin-top:26px}
+.q-back{background:none;border:0;color:var(--muted);font-weight:700;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:8px 10px;border-radius:8px;font-family:'Open Sans',sans-serif}
+.q-back:hover{color:var(--blue-deep);background:var(--gray)}
+.q-note{font-size:12.5px;color:#8a919c}
+.q-fade{animation:qfade .3s ease}
+@keyframes qfade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* outcome */
+.oc-flag{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:16px}
+.oc-title{font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(24px,3vw,32px);line-height:1.12;margin-bottom:12px}
+.oc-copy{color:var(--muted);font-size:16px;margin-bottom:8px}
+.oc-points{margin:18px 0 6px;display:grid;gap:10px}
+.oc-points li{list-style:none;display:flex;gap:10px;align-items:flex-start;font-size:15px}
+.oc-points svg{width:19px;height:19px;flex:none;margin-top:3px}
+.oc-warn{background:var(--amber-soft);border:1px solid #f2ddb2;border-radius:10px;padding:12px 16px;font-size:14px;color:#7a5410;margin-top:14px}
+.oc-summary{background:var(--gray);border-radius:12px;padding:16px 18px;margin:22px 0;font-size:13.5px}
+.oc-summary b{display:block;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.oc-summary .tag{display:inline-block;background:#fff;border:1px solid var(--border);border-radius:999px;padding:4px 12px;margin:3px 4px 3px 0;font-weight:600;color:var(--blue-deep)}
+
+/* lead form */
+.lead-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+.lead-form .full{grid-column:1/-1}
+.lf-field label{display:block;font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.lf-field input,.lf-field select{width:100%;padding:13px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:15px;font-family:'Open Sans',sans-serif;color:var(--ink);background:#fff;transition:border-color .12s}
+.lf-field input:focus,.lf-field select:focus{outline:none;border-color:var(--blue-2);box-shadow:0 0 0 3px rgba(24,102,154,.12)}
+.lead-form .btn{grid-column:1/-1;padding:16px;font-size:16px}
+.lf-fine{grid-column:1/-1;font-size:12px;color:#8a919c;text-align:center}
+@media(max-width:640px){.lead-form{grid-template-columns:1fr}}
+.confirm-ico{width:74px;height:74px;border-radius:50%;background:var(--green-soft);display:flex;align-items:center;justify-content:center;margin:6px auto 20px}
+.confirm-ico svg{width:36px;height:36px;color:var(--green)}
+
+/* branch accents */
+.acc-storm{--accent:var(--red)} .acc-claim{--accent:var(--blue-2)} .acc-aging{--accent:var(--amber)} .acc-solar{--accent:var(--green)} .acc-options{--accent:var(--blue)}
+.flag-storm{background:var(--red-soft);color:var(--red)}
+.flag-claim{background:var(--blue-soft);color:var(--blue-2)}
+.flag-aging{background:var(--amber-soft);color:var(--amber)}
+.flag-solar{background:var(--green-soft);color:var(--green)}
+.flag-options{background:#e8eef4;color:var(--blue)}
+
+/* ---------- branch cards section ---------- */
+.cards-5{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.bcard{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:26px 24px 24px;position:relative;overflow:hidden;transition:transform .15s,box-shadow .15s;display:flex;flex-direction:column}
+.bcard::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--accent,var(--blue))}
+.bcard:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.bcard .tagline{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.bcard h3{font-family:'Oswald',sans-serif;font-weight:600;font-size:20px;text-transform:uppercase;letter-spacing:.02em;margin-bottom:8px}
+.bcard p{font-size:14px;color:var(--muted);flex:1}
+.bcard .go{margin-top:16px;display:inline-flex;align-items:center;gap:7px;font-weight:800;font-size:13.5px;color:var(--accent);text-decoration:none;background:none;border:0;cursor:pointer;padding:0;font-family:'Open Sans',sans-serif}
+.bcard .go:hover{gap:11px}
+.bcard .go svg{transition:transform .15s}
+@media(max-width:920px){.cards-5{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.cards-5{grid-template-columns:1fr}}
+
+/* ---------- reviews marquee ---------- */
+.rev-sec{padding:56px 0;background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden}
+.rev-head{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:30px;flex-wrap:wrap;text-align:center}
+.rev-head .g{display:flex;align-items:center;gap:8px;font-weight:800;font-size:15px;color:var(--ink)}
+.rev-head .g svg{width:22px;height:22px}
+.rev-head .stars{display:flex;gap:2px}
+.rev-head .stars svg{width:18px;height:18px;fill:#f5b301}
+.rev-head .sub{font-size:13.5px;color:var(--muted);font-weight:600}
+.rev-marquee{position:relative}
+.rev-marquee::before,.rev-marquee::after{content:"";position:absolute;top:0;bottom:0;width:90px;z-index:2;pointer-events:none}
+.rev-marquee::before{left:0;background:linear-gradient(90deg,#fff,transparent)}
+.rev-marquee::after{right:0;background:linear-gradient(270deg,#fff,transparent)}
+.rev-track{display:flex;gap:22px;width:max-content;animation:revscroll 45s linear infinite}
+.rev-track:hover{animation-play-state:paused}
+@keyframes revscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.rev-card{width:380px;flex:none;background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px 24px;box-shadow:var(--shadow-sm)}
+.rev-card .stars{display:flex;gap:2px;margin-bottom:12px}
+.rev-card .stars svg{width:16px;height:16px;fill:#f5b301}
+.rev-card p{font-size:14.5px;color:var(--ink);margin-bottom:14px}
+.rev-card .who{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.rev-card .who b{font-size:13.5px}
+.rev-card .who span{font-size:12px;color:var(--muted)}
+.rev-card .gtag{display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;color:var(--muted)}
+.rev-card .gtag svg{width:14px;height:14px}
+@media(max-width:520px){.rev-card{width:300px}}
+
+/* ---------- difference table ---------- */
+.tbl-wrap{overflow-x:auto;border-radius:var(--radius);box-shadow:var(--shadow-md);border:1px solid var(--border)}
+table.cmp{width:100%;border-collapse:collapse;background:#fff;min-width:640px}
+table.cmp th{background:var(--blue-deep);color:#fff;font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-size:14px;padding:16px 20px;text-align:left}
+table.cmp th:first-child{width:34%}
+table.cmp td{padding:14px 20px;font-size:14.5px;border-top:1px solid var(--border)}
+table.cmp td:first-child{font-weight:700;color:var(--blue-deep)}
+table.cmp tr:nth-child(even) td{background:#fafbfd}
+.yes{display:inline-flex;align-items:center;gap:7px;color:var(--green);font-weight:700}
+.no{display:inline-flex;align-items:center;gap:7px;color:#9aa2ad}
+.yes svg,.no svg{width:16px;height:16px}
+
+/* ---------- process ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:step}
+.step-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:26px 22px;box-shadow:var(--shadow-sm);position:relative}
+.step-card .n{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--blue-2));color:#fff;font-family:'Oswald',sans-serif;font-weight:700;font-size:20px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.step-card h4{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:16.5px;margin-bottom:8px}
+.step-card p{font-size:13.5px;color:var(--muted)}
+@media(max-width:920px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+
+/* ---------- advocate ---------- */
+.advocate{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+.portrait{position:relative}
+.portrait .frame{aspect-ratio:4/4.6;border-radius:18px;background:linear-gradient(160deg,var(--blue-deep),var(--blue-2));overflow:hidden;box-shadow:var(--shadow-lg);display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:24px;align-content:center}
+.pstat{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:18px 16px;display:flex;flex-direction:column;justify-content:center}
+.pstat b{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(22px,2.4vw,30px);color:#fff;line-height:1.1;display:flex;align-items:center;gap:6px}
+.pstat b svg{width:20px;height:20px;fill:#f5b301;flex:none}
+.pstat span{font-size:12px;color:#cfe4f2;line-height:1.45;margin-top:6px}
+.portrait .badge{position:absolute;left:-14px;bottom:26px;background:#fff;border-radius:12px;box-shadow:var(--shadow-md);padding:12px 18px;border:1px solid var(--border)}
+.portrait .badge b{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:15px;letter-spacing:.03em;color:var(--blue-deep);display:block}
+.portrait .badge span{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
+.advocate .body p{color:var(--muted);font-size:16px;margin-bottom:16px}
+.cred-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+@media(max-width:860px){.advocate{grid-template-columns:1fr;gap:36px}}
+
+/* ---------- wondering ---------- */
+.wonder{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.wonder .w{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px 18px;font-size:15px;font-weight:600;box-shadow:var(--shadow-sm)}
+.wonder .w svg{width:20px;height:20px;flex:none;color:var(--blue-2);margin-top:2px}
+@media(max-width:720px){.wonder{grid-template-columns:1fr}}
+
+/* ---------- book ---------- */
+.book-sec{background:linear-gradient(120deg,var(--blue-deep) 0%,var(--blue) 55%,var(--blue-2) 100%);color:#fff;position:relative;overflow:hidden}
+.book-sec::after{content:"";position:absolute;right:-140px;top:-140px;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,.05)}
+.book-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center;position:relative;z-index:1}
+.book{width:min(300px,80%);margin:0 auto;perspective:1000px}
+.book .cover{aspect-ratio:3/4.35;border-radius:6px 12px 12px 6px;background:linear-gradient(150deg,#0a5d92 0%,var(--blue-deep) 70%);box-shadow:24px 28px 60px rgba(0,20,40,.45), inset 6px 0 12px rgba(255,255,255,.06), inset -2px 0 6px rgba(0,0,0,.25);transform:rotateY(-14deg) rotateX(2deg);padding:26px 22px;display:flex;flex-direction:column;border-left:5px solid #032c47}
+.book .k{font-size:9.5px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#9fd0ef;margin-bottom:14px}
+.book .bt{font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:31px;line-height:1.04;color:#fff}
+.book .bt .r{color:#ff8d7a}
+.book .bs{font-size:11px;color:#cfe6f5;margin-top:12px;line-height:1.5}
+.book .band{margin-top:auto;background:var(--red);margin-left:-22px;margin-right:-22px;padding:10px 22px}
+.book .band b{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff;display:block}
+.book .band span{font-size:10.5px;color:#ffd9d2}
+.book-body .eyebrow{color:#ffb3a6}.book-body .eyebrow::before{background:#ffb3a6}
+.book-body h2{font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(26px,3.2vw,38px);line-height:1.12;margin:14px 0 16px}
+.book-body p{color:#d5e7f3;font-size:16px;margin-bottom:14px}
+.book-pts{display:grid;gap:10px;margin:20px 0 26px}
+.book-pts li{list-style:none;display:flex;gap:10px;font-size:15px;color:#eaf4fb}
+.book-pts svg{width:19px;height:19px;flex:none;margin-top:3px;color:#7fd6a4}
+.book-note{font-size:12px;color:#9dc4dd;margin-top:14px}
+@media(max-width:860px){.book-grid{grid-template-columns:1fr;gap:44px}}
+
+/* ---------- faq ---------- */
+.faq{max-width:780px;margin:0 auto}
+.faq details{background:#fff;border:1px solid var(--border);border-radius:12px;margin-bottom:12px;box-shadow:var(--shadow-sm);overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:18px 22px;font-weight:700;font-size:15.5px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .pm{width:26px;height:26px;border-radius:8px;background:var(--blue-soft);color:var(--blue-deep);display:flex;align-items:center;justify-content:center;font-weight:800;flex:none;transition:transform .2s}
+.faq details[open] summary .pm{transform:rotate(45deg);background:var(--red-soft);color:var(--red)}
+.faq .a{padding:0 22px 20px;color:var(--muted);font-size:14.5px}
+
+/* ---------- final cta ---------- */
+.final{background:linear-gradient(120deg,var(--ink) 0%,var(--blue-deep) 80%);color:#fff;text-align:center}
+.final h2{font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(28px,3.6vw,44px);line-height:1.1;max-width:760px;margin:0 auto 18px}
+.final h2 .c-red{color:#ff8d7a}
+.final p{color:#c9dcea;max-width:600px;margin:0 auto 30px;font-size:16.5px}
+.final .ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.final .fine{margin-top:22px;font-size:12.5px;color:#8fb2c9}
+
+/* ---------- footer ---------- */
+footer{background:#0b1622;color:#93a2b2;font-size:13px;padding:36px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer .fl{max-width:560px}
+footer b{color:#d7e2ec;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+footer .legal{margin-top:10px;font-size:12px;line-height:1.7}
+
+/* sticky mobile call bar */
+.callbar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:#fff;border-top:1px solid var(--border);padding:10px 14px;gap:10px;box-shadow:0 -6px 20px rgba(17,22,31,.1)}
+.callbar .btn{flex:1;padding:13px 10px;font-size:14.5px}
+@media(max-width:720px){.callbar{display:flex}body{padding-bottom:70px}}
 </style>
 </head>
 <body>
-<iframe id="assessmentFrame" title="Texas Roof Guardians 60-Second Roof Assessment" src="../trg-funnel/"></iframe>
+
+<!-- ============ TOP TRUST BAR ============ -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="items">
+      <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Licensed &amp; Insured · TX</span>
+      <span class="item">BBB Accredited</span>
+      <span class="item">GAF Certified · Owens Corning Preferred</span>
+    </div>
+    <div class="items right">
+      <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>24/7 Storm Response</span>
+      <a class="item" href="tel:8302286123"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.5 2.8.7a2 2 0 0 1 1.8 2z"/></svg>830-228-6123</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="#top">
+      <svg class="mark" viewBox="0 0 48 48" fill="none">
+        <path d="M24 3L44 15v10c0 12-9 18-20 20C13 43 4 37 4 25V15L24 3z" fill="#024e7c"/>
+        <path d="M24 10L37 19H11L24 10z" fill="#be1314"/>
+        <rect x="15" y="21" width="18" height="12" rx="1.5" fill="#fff"/>
+        <rect x="21.5" y="26" width="5" height="7" fill="#024e7c"/>
+      </svg>
+      <span class="name">Texas<br><span class="red">Roof Guardians</span></span>
+    </a>
+    <div class="head-cta">
+      <a class="head-phone" href="tel:8302286123">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.5 2.8.7a2 2 0 0 1 1.8 2z"/></svg>
+        <span>830-228-6123</span>
+      </a>
+      <a class="btn btn-red" href="#quiz">Find My Next Step</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">San Antonio · Austin · Central Texas Homeowners</div>
+      <h1>Not sure if it's a <span class="c-amber">repair</span>, a <span class="c-blue">replacement</span>, or an <span class="c-red">insurance claim</span>?</h1>
+      <p class="lede">Answer a few quick questions about your roof and get the right next step for your exact situation, whether that's a documented inspection, a claim review, or a coordinated roof and solar consultation. No pressure, no obligation.</p>
+      <div class="ctas">
+        <a class="btn btn-red" href="#quiz">Find My Next Step</a>
+        <a class="btn btn-ghost" href="tel:8302286123">Call 830-228-6123</a>
+      </div>
+      <div class="chips">
+        <span class="chip green">No Obligation</span>
+        <span class="chip">Documented Inspections</span>
+        <span class="chip red">24/7 Storm Response</span>
+      </div>
+    </div>
+    <div class="path-panel">
+      <div class="ph">
+        <div class="t">What's going on with your roof?</div>
+        <div class="s">Pick your situation to get started. About 60 seconds.</div>
+      </div>
+      <div class="path-list">
+        <button class="path-item pi-aging" onclick="startQuiz('aging')">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+          <span class="tx"><b>My roof is getting old</b><span>Leaks, wear, repairs that keep coming back</span></span>
+          <svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="path-item pi-solar" onclick="startQuiz('solar')">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span>
+          <span class="tx"><b>I have solar on my roof</b><span>Replacement, detach and reset, coordination</span></span>
+          <svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="path-item pi-claim" onclick="startQuiz('claim')">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg></span>
+          <span class="tx"><b>I'm dealing with an insurance claim</b><span>Filing, adjuster visit, estimate, or denial</span></span>
+          <svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="path-item pi-storm" onclick="startQuiz('storm')">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></span>
+          <span class="tx"><b>A storm just hit</b><span>Hail, wind, missing shingles, leaks</span></span>
+          <svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="path-item pi-options" onclick="startQuiz('options')">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 5-9 5-9-5 9-5zM3 12l9 5 9-5M3 17l9 5 9-5"/></svg></span>
+          <span class="tx"><b>I'm comparing my options</b><span>Materials, warranties, financing, second opinions</span></span>
+          <svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ REVIEWS MARQUEE (real Google Business Profile reviews) ============ -->
+<div class="rev-sec">
+  <div class="rev-head">
+    <span class="g">
+      <svg viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+      5.0 on Google
+    </span>
+    <span class="stars">
+      <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.2 5.8 20.9l1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.2 5.8 20.9l1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.2 5.8 20.9l1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.2 5.8 20.9l1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.2 5.8 20.9l1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
+    </span>
+    <span class="sub">56 reviews from homeowners across San Antonio, Austin &amp; Central Texas</span>
+  </div>
+  <div class="rev-marquee">
+    <div class="rev-track" id="revTrack">
+      <!-- review set (duplicated by JS for the seamless loop) -->
+    </div>
+  </div>
+</div>
+
+<!-- ============ QUIZ ============ -->
+<section id="quiz" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Find Your Next Step</div>
+      <h2>Your situation decides the right move. We've got you covered.</h2>
+      <p>A storm claim, an aging roof, and a roof with solar panels are three completely different decisions. Tell us what's actually happening and we'll point you to the step that fits.</p>
+    </div>
+    <div class="quiz-shell" id="quizShell">
+      <div class="quiz-top">
+        <div class="qt" id="quizTitle">Find my next step</div>
+        <div class="step" id="quizStep">Start</div>
+      </div>
+      <div class="qbar"><i id="quizBar"></i></div>
+      <div class="quiz-body" id="quizBody"><!-- rendered by JS --></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5 BRANCH CARDS ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Five Situations, Five Answers</div>
+      <h2>Whatever brought you here, there's a clear path for it</h2>
+      <p>Every path ends the same way: you understand your roof, your options, and your next step, with everything documented in writing.</p>
+    </div>
+    <div class="cards-5">
+      <div class="bcard acc-aging">
+        <div class="tagline">Aging Roof</div>
+        <h3>Repair or Replace</h3>
+        <p>Repeated repairs, granule loss, stains, or a roof past its prime. Get an honest assessment and a practical framework for the repair versus replacement call.</p>
+        <button class="go" onclick="startQuiz('aging')">Start here <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+      <div class="bcard acc-solar">
+        <div class="tagline">Roof + Solar</div>
+        <h3>Solar-Safe Roofing</h3>
+        <p>Most homeowners with solar get bounced between a roofer and a solar company. Get one coordinated plan for detach, replacement, reset, and verification.</p>
+        <button class="go" onclick="startQuiz('solar')">Start here <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+      <div class="bcard acc-claim">
+        <div class="tagline">Insurance Claims</div>
+        <h3>Claim Support</h3>
+        <p>About to file, expecting the adjuster, or staring at an estimate that doesn't look right. Get a claim and documentation review from a team that speaks the language.</p>
+        <button class="go" onclick="startQuiz('claim')">Start here <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+      <div class="bcard acc-storm">
+        <div class="tagline">Storm Damage</div>
+        <h3>After the Storm</h3>
+        <p>Hail, wind, missing shingles, or water coming in. Get a documented storm inspection with photos and a written condition report before you make any decision.</p>
+        <button class="go" onclick="startQuiz('storm')">Start here <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+      <div class="bcard acc-options">
+        <div class="tagline">Still Researching</div>
+        <h3>Compare Options</h3>
+        <p>Shingles, impact resistance, metal, tile, warranties, financing. Get a practical options consultation and the free homeowner guide, with zero pressure to commit.</p>
+        <button class="go" onclick="startQuiz('options')">Start here <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+      <div class="bcard" style="--accent:var(--blue-deep);background:linear-gradient(140deg,var(--blue-deep),var(--blue-2));border:0">
+        <div class="tagline" style="color:#9fd0ef">Need Help Now?</div>
+        <h3 style="color:#fff">24/7 Storm Response</h3>
+        <p style="color:#cfe4f2">Active leak or storm emergency? Skip the questions and call. Emergency response and tarping, day or night.</p>
+        <a class="go" style="color:#fff" href="tel:8302286123">Call 830-228-6123 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ADVOCATE ============ -->
+<section class="alt">
+  <div class="wrap advocate">
+    <div class="portrait">
+      <!-- OWNER PHOTO: when the headshot arrives, replace this stats grid with the portrait image (keep .frame) -->
+      <div class="frame">
+        <div class="pstat"><b><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.2 5.8 20.9l1.6-7L2 9.2l7.1-.6L12 2z"/></svg>5.0</b><span>Google rating across 56 homeowner reviews</span></div>
+        <div class="pstat"><b>$7.77M</b><span>In insurance claims approved for Texas homeowners</span></div>
+        <div class="pstat"><b>94%</b><span>Of submitted claims approved or supplemented in the client's favor</span></div>
+        <div class="pstat"><b>HAAG</b><span>Certified inspectors with full photo documentation</span></div>
+      </div>
+      <div class="badge">
+        <span>Your Local Advocate</span>
+        <b>Texas Roof Guardians</b>
+      </div>
+    </div>
+    <div class="body">
+      <div class="sec-head left" style="margin-bottom:22px">
+        <div class="eyebrow">Why Homeowners Choose Us</div>
+        <h2>A documentation-first roofing advocate, not a high-pressure sales crew</h2>
+      </div>
+      <p>Texas Roof Guardians is headquartered in San Antonio and serves Austin and all of Central Texas. We help homeowners understand what happened to their roof, document it properly, make a sound decision, and move through the work with one accountable company.</p>
+      <p>That starts with how we inspect. Every roof gets a written condition record and a photo report you keep, whether or not you ever hire us. When insurance is involved, that documentation becomes the difference between a claim that reflects your actual damage and one that misses half the scope.</p>
+      <div class="cred-row">
+        <span class="chip">Licensed &amp; Insured · TX</span>
+        <span class="chip">BBB Accredited</span>
+        <span class="chip">GAF Certified</span>
+        <span class="chip">Owens Corning Preferred</span>
+        <span class="chip red">24/7 Storm Response</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIFFERENCE TABLE ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The Difference</div>
+      <h2>A quick sales visit is not an inspection</h2>
+      <p>After a Central Texas storm, plenty of companies will knock on your door and quote you a roof from the driveway. Here's what a documented inspection looks like instead.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table class="cmp">
+        <tr><th>What You Get</th><th>Typical Door-Knock Visit</th><th>Texas Roof Guardians</th></tr>
+        <tr><td>Written photo report you keep</td><td><span class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Rarely</span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Every inspection</span></td></tr>
+        <tr><td>Written condition baseline for your records</td><td><span class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>No</span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Yes</span></td></tr>
+        <tr><td>Claim-ready documentation and adjuster coordination</td><td><span class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Hit or miss</span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Core of the process</span></td></tr>
+        <tr><td>Repair versus replacement framework, explained</td><td><span class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Usually "replace it"</span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Honest options</span></td></tr>
+        <tr><td>Roof and solar handled as one coordinated project</td><td><span class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>"Call your solar company"</span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>One accountable company</span></td></tr>
+        <tr><td>Pressure to sign today</td><td><span class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Often heavy</span></td><td><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>None. You decide.</span></td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Simple Process</div>
+      <h2>How it works from here</h2>
+      <p>No obligation at any step. The purpose is to help you understand your roof and your options.</p>
+    </div>
+    <div class="steps">
+      <div class="step-card"><div class="n">1</div><h4>Answer the questions</h4><p>Tell us what's happening with your roof. It takes about a minute and routes you to the right next step.</p></div>
+      <div class="step-card"><div class="n">2</div><h4>We confirm fast</h4><p>You get an immediate confirmation and a fast follow-up to schedule your inspection, review, or consultation.</p></div>
+      <div class="step-card"><div class="n">3</div><h4>Documented visit</h4><p>We inspect and document everything in writing with photos. You keep the report either way.</p></div>
+      <div class="step-card"><div class="n">4</div><h4>You decide</h4><p>Clear options, honest recommendations, no pressure. If insurance is involved, we support the process from start to finish.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WONDERING ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Who This Helps</div>
+      <h2>This is for you if you're wondering...</h2>
+    </div>
+    <div class="wonder">
+      <div class="w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg>Is this hail damage serious enough to do something about?</div>
+      <div class="w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg>Should I file an insurance claim, or will it hurt me later?</div>
+      <div class="w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg>Is the carrier's estimate missing part of the damage?</div>
+      <div class="w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg>Should I repair my roof again, or is it time to replace it?</div>
+      <div class="w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg>What happens to my solar panels if the roof gets replaced?</div>
+      <div class="w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg>Which roofing material actually makes sense in Central Texas?</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOOK / EBOOK PLACEHOLDER ============ -->
+<section class="book-sec" id="guide">
+  <div class="wrap book-grid">
+    <div class="book">
+      <!-- Cover art is CSS-drawn to match the real guide (repair-replace-or-file-a-claim.pdf). Swap for a cover image export if preferred. -->
+      <div class="cover">
+        <div class="k">Free Homeowner Guide</div>
+        <div class="bt">Repair, Replace or <span class="r">File a Claim?</span></div>
+        <div class="bs">A Central Texas homeowner's guide to what your roof actually needs. Follow the evidence, not the sales pressure.</div>
+        <div class="band"><b>Texas Roof Guardians</b><span>San Antonio · Austin · Central Texas</span></div>
+      </div>
+    </div>
+    <div class="book-body">
+      <div class="eyebrow">Free Guide</div>
+      <h2>Know what your roof actually needs before you commit</h2>
+      <p>Not ready to talk to anyone yet? Smart. This 40-page guide walks you through the three possible paths, repair, replacement, or an insurance claim, and shows you how to follow the evidence to the right one.</p>
+      <ul class="book-pts">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>How to tell whether a repair, a replacement, or a claim actually fits your roof</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>What a complete inspection covers, from shingles and flashing to decking and the attic</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>The insurance path explained, and when a claim does not belong in the conversation</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Roofing with solar, how to choose a contractor, and a homeowner workbook</li>
+      </ul>
+      <a class="btn btn-red" href="repair-replace-or-file-a-claim.pdf" target="_blank" rel="noopener">Get the Free Guide (PDF)</a>
+      <div class="book-note">No obligation. The guide is educational and yours to keep.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Common Questions</div>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Does answering the questions commit me to anything?<span class="pm">+</span></summary>
+        <div class="a">No. This helps us understand your situation so the first conversation is actually useful. There is no obligation, no listing of your information for sale, and no pressure to move forward.</div>
+      </details>
+      <details>
+        <summary>Are you an insurance company or a public adjuster?<span class="pm">+</span></summary>
+        <div class="a">No. Texas Roof Guardians is a roofing contractor. We document your roof's condition thoroughly and support you through the claim process, but decisions about your claim rest with you and your insurance carrier. We don't promise claim approval, and nothing here is insurance or legal advice.</div>
+      </details>
+      <details>
+        <summary>What does a documented inspection include?<span class="pm">+</span></summary>
+        <div class="a">A complete look at the roof system, photos of what we find, and a written condition record you keep. If a claim is involved, that documentation is prepared so it can support the adjuster process.</div>
+      </details>
+      <details>
+        <summary>What if I have solar panels?<span class="pm">+</span></summary>
+        <div class="a">That's one of our specialties. Roof work on a home with solar has to be coordinated: detach, roof replacement, reset, and verification that the system is producing again. We manage that as one project with one accountable company instead of leaving you to referee between a roofer and a solar installer.</div>
+      </details>
+      <details>
+        <summary>What areas do you serve?<span class="pm">+</span></summary>
+        <div class="a">We're headquartered in San Antonio and serve Austin and all of Central Texas.</div>
+      </details>
+      <details>
+        <summary>How fast will someone contact me?<span class="pm">+</span></summary>
+        <div class="a">You'll get an immediate confirmation when your request comes in, and a fast follow-up to get your inspection or review scheduled. If you have an active leak or storm emergency, call 830-228-6123 directly. Storm response runs 24/7.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final">
+  <div class="wrap">
+    <h2>Your roof has a right next step. <span class="c-red">Find it in 60 seconds.</span></h2>
+    <p>Storm damage, a claim, an aging roof, solar, or just research. Answer a few questions and get the step that fits your situation, documented and pressure-free.</p>
+    <div class="ctas">
+      <a class="btn btn-red" href="#quiz">Find My Next Step</a>
+      <a class="btn" style="background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.35)" href="tel:8302286123">Call 830-228-6123</a>
+    </div>
+    <div class="fine">No obligation · Documented in writing · San Antonio, Austin &amp; Central Texas</div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="fl">
+      <b>Texas Roof Guardians</b>
+      <div class="legal">Licensed &amp; Insured, Texas. BBB Accredited. GAF Certified. Owens Corning Preferred. Serving San Antonio, Austin and Central Texas.<br><br>
+      This page is educational. Texas Roof Guardians is a roofing contractor, not an insurance carrier, public adjuster, or law firm. Nothing on this page is a promise of claim approval or a substitute for the terms of your insurance policy.</div>
+    </div>
+    <div>
+      <b>Talk to us</b>
+      <div class="legal"><a href="tel:8302286123" style="color:#d7e2ec;text-decoration:none;font-weight:700">830-228-6123</a><br>24/7 Storm Response<br><a href="https://txroofguardians.com" style="color:#93a2b2">txroofguardians.com</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- sticky mobile call bar -->
+<div class="callbar">
+  <a class="btn btn-navy" href="tel:8302286123">Call Now</a>
+  <a class="btn btn-red" href="#quiz">Find My Next Step</a>
+</div>
+
 <script>
-  (function () {
-    var frame = document.getElementById('assessmentFrame');
-    if (frame && location.search) frame.src = '../trg-funnel/' + location.search;
-  })();
-</script>
-<div class="fallback" id="assessmentFallback" style="display:none">The online assessment isn't available right now. Please <a href="contact.html">contact us</a> or call <a href="tel:8302286123">830-228-6123</a> to schedule your free inspection.</div>
-<noscript><div class="fallback">Please enable JavaScript or <a href="../trg-funnel/">open the roof assessment here</a>.</div></noscript>
-<script>
-(function(){
-  var frame=document.getElementById('assessmentFrame');
-  var MAIN='/trg-demo/index.html';
-  var PRIVACY='/trg-demo/privacy.html';
-  var TERMS='/trg-demo/terms.html';
+/* =====================================================
+   BRANCHING QUIZ
+   Branches: storm / claim / aging / solar / options
+   FORM SUBMIT: front-end demo only. Wire the submit handler
+   to GHL / webhook / CRM endpoint before launch.
+===================================================== */
+const BRANCH_META = {
+  storm:  {label:'Storm Damage',   flag:'flag-storm',  acc:'acc-storm',
+           title:'A free documented storm inspection',
+           copy:"Based on what you told us, the right next step is a documented storm inspection. We look at the whole roof system, photograph what the storm actually did, and give you a written condition record you keep, so any decision you make, including whether a claim even makes sense, is based on evidence instead of guesswork.",
+           points:['Full roof system inspection with photo documentation','A written condition record you keep, whether or not you hire us','Straight answers on whether the damage is worth acting on','Claim-ready documentation if insurance becomes involved']},
+  claim:  {label:'Insurance Claim', flag:'flag-claim',  acc:'acc-claim',
+           title:'A free claim & documentation review',
+           copy:"Based on what you told us, the right next step is a claim and documentation review. We put your roof's actual condition side by side with where your claim stands, so you know whether the scope reflects the real damage before you sign anything or accept any number.",
+           points:['Review of your claim stage, estimate, or denial situation','Independent documentation of the roof’s actual condition','Adjuster meeting coordination and missed-scope support','You stay in control. Decisions rest with you and your carrier.']},
+  aging:  {label:'Aging Roof',      flag:'flag-aging',  acc:'acc-aging',
+           title:'A repair vs. replacement assessment',
+           copy:"Based on what you told us, the right next step is an honest repair versus replacement assessment. We document the roof's condition, walk you through a practical decision framework, and tell you plainly when a repair is still the smart money and when it's throwing good money after bad.",
+           points:['Written photo report establishing your roof’s condition baseline','A practical framework for the repair vs. replacement call','Options across shingles, impact-resistant systems, metal and tile','No pressure. The report is yours either way.']},
+  solar:  {label:'Roof + Solar',    flag:'flag-solar',  acc:'acc-solar',
+           title:'A coordinated roof & solar consultation',
+           copy:"Based on what you told us, the right next step is a coordinated roof and solar consultation. Roof work under solar panels is a sequencing problem: detach, roof, reset, verify. We plan and manage it as one project with one accountable company, so you're not refereeing between two contractors.",
+           points:['One coordinated plan: detach, roof replacement, reset, verification','Roof and solar storm damage documented together','Warranty considerations handled in the plan, not discovered later','One accountable company for the entire sequence']},
+  options:{label:'Comparing Options',flag:'flag-options',acc:'acc-options',
+           title:'A practical options consultation + the free guide',
+           copy:"Based on what you told us, the right next step is a practical options consultation. No sales theater, just a clear walk through the materials, warranties, and cost questions that actually matter for a Central Texas roof, plus the free homeowner guide so you can study everything at your own pace.",
+           points:['Side-by-side look at shingles, impact-resistant options, metal and tile','What material, workmanship and storm warranties really cover','Financing and deductible questions answered in plain English','The free guide: Repair, Replace or File a Claim?, yours to keep']},
+};
 
-  function topLink(a,href){
-    if(!a)return;
-    a.setAttribute('href',href);
-    a.setAttribute('target','_top');
+const COMMON_QS = [
+  {id:'owner', q:'Do you own the property?', sub:'This helps us route your request correctly.',
+   opts:['Yes, it’s my home','Yes, it’s a rental or investment property','I manage it (property manager or HOA)','No, I rent here']},
+  {id:'area', q:'Where is the property?', sub:'We serve San Antonio, Austin and all of Central Texas.',
+   opts:['San Antonio area','Austin area','Elsewhere in Central Texas','Outside Central Texas']},
+];
+
+const FLOW = {
+  start: {q:'What best describes your roof situation right now?', sub:'Pick the closest fit. You can change course at any time.', opts:[
+    {t:'My roof is getting old, leaking, or needs repeated repairs', b:'aging'},
+    {t:'I have solar panels and roof work coming', b:'solar'},
+    {t:'I’m dealing with an insurance claim', b:'claim'},
+    {t:'A storm just hit, or I think I have hail or wind damage', b:'storm'},
+    {t:'I’m researching materials, warranties and options', b:'options'},
+  ]},
+  storm: [
+    {q:'When did the storm come through?', sub:'Timing matters for documentation and for your policy.',
+     opts:['Within the last 72 hours','In the last few weeks','A while back, but it was never inspected','I’m not sure a specific storm caused it']},
+    {q:'What are you seeing?', sub:'Your best guess is fine. That’s what the inspection is for.',
+     opts:['Missing, lifted or cracked shingles','Dents on vents, gutters or flashing','Water inside or ceiling stains','Nothing obvious, I just want it checked']},
+  ],
+  claim: [
+    {q:'Where is your claim right now?', sub:'Each stage has a different right move.',
+     opts:['I haven’t filed yet and I’m deciding whether to','The adjuster visit is coming up','I have the carrier’s estimate and want it checked','My claim was partially approved or denied']},
+  ],
+  aging: [
+    {q:'How old is your roof?', sub:'An estimate is fine.',
+     opts:['Under 10 years','10 to 15 years','15 to 20 years','Over 20 years, or I don’t know']},
+    {q:'What’s pushing you to look at it now?',
+     opts:['A leak or ceiling stain','Granule loss or visible wear','Repairs that keep coming back','Planning ahead before it gets urgent']},
+  ],
+  solar: [
+    {q:'What’s the situation with your roof and solar?',
+     opts:['Roof needs replacing and the panels are in the way','Storm damage to the roof, the panels, or both','A warranty or workmanship concern','Planning a roof and solar project together']},
+  ],
+  options: [
+    {q:'What are you weighing up?', sub:'Pick the biggest question on your mind.',
+     opts:['Architectural vs. impact-resistant shingles','Metal or tile instead of shingles','What the warranties really cover','Financing, deductibles and cost']},
+  ],
+};
+
+let state = null;
+
+function startQuiz(branch){
+  state = {branch: branch || null, stepIndex: branch ? 0 : -1, answers: [], phase: branch ? 'branch' : 'start'};
+  if (branch) state.answers.push({q:'Situation', a:BRANCH_META[branch].label});
+  document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  render();
+}
+
+function totalSteps(){
+  const b = state && state.branch ? FLOW[state.branch].length : 2;
+  return 1 + b + COMMON_QS.length + 1; // start + branch qs + common + form
+}
+function currentStep(){
+  if (!state || state.phase==='start') return 1;
+  if (state.phase==='branch') return 2 + state.stepIndex;
+  if (state.phase==='common') return 2 + FLOW[state.branch].length + state.stepIndex;
+  return totalSteps();
+}
+
+function setChrome(){
+  const meta = state && state.branch ? BRANCH_META[state.branch] : null;
+  document.getElementById('quizTitle').textContent = meta ? meta.label + ' · Find my next step' : 'Find my next step';
+  const cur = currentStep(), tot = totalSteps();
+  document.getElementById('quizStep').textContent = state && state.phase==='done' ? 'Done' : 'Step ' + cur + ' of ' + tot;
+  document.getElementById('quizBar').style.width = Math.round(cur/tot*100) + '%';
+}
+
+function optBtn(text, handler){
+  return '<button class="q-opt" onclick="'+handler+'"><span class="dot"></span><span>'+text+'</span></button>';
+}
+
+function render(){
+  const body = document.getElementById('quizBody');
+  const shell = document.getElementById('quizShell');
+  shell.className = 'quiz-shell ' + (state && state.branch ? BRANCH_META[state.branch].acc : '');
+  let html = '';
+
+  if (!state || state.phase === 'start'){
+    const f = FLOW.start;
+    html = '<div class="q-fade"><div class="q-question">'+f.q+'</div><div class="q-sub">'+f.sub+'</div><div class="q-opts">';
+    f.opts.forEach((o,i)=>{ html += optBtn(o.t, "pickStart("+i+")"); });
+    html += '</div><div class="q-nav"><span></span><span class="q-note">No obligation · Stays private · ~60 seconds</span></div></div>';
   }
-
-  function enhance(){
-    var doc;
-    try{doc=frame.contentDocument||frame.contentWindow.document;}catch(e){return;}
-    if(!doc||!doc.body)return;
-
-    /* Make the funnel behave as a genuine extension of the main TRG website. */
-    topLink(doc.querySelector('header.site .logo'),MAIN);
-
-    var headCta=doc.querySelector('header.site .head-cta');
-    if(headCta&&!doc.getElementById('trg-main-site-link')){
-      var home=doc.createElement('a');
-      home.id='trg-main-site-link';
-      home.href=MAIN;
-      home.target='_top';
-      home.textContent='Main Website';
-      home.style.cssText='font-size:12px;font-weight:800;color:#00416a;text-decoration:none;white-space:nowrap';
-      headCta.insertBefore(home,headCta.firstChild);
-    }
-
-    var footer=doc.querySelector('footer .wrap');
-    if(footer&&!doc.getElementById('trg-integrated-legal')){
-      var legal=doc.createElement('div');
-      legal.id='trg-integrated-legal';
-      legal.style.cssText='width:100%;padding-top:14px;margin-top:6px;border-top:1px solid rgba(255,255,255,.12);font-size:12px;line-height:1.7';
-      legal.innerHTML='<a href="'+MAIN+'" target="_top" style="color:#d7e2ec">Texas Roof Guardians Main Website</a> &nbsp;·&nbsp; <a href="'+PRIVACY+'" target="_top" style="color:#d7e2ec">Privacy Policy</a> &nbsp;·&nbsp; <a href="'+TERMS+'" target="_top" style="color:#d7e2ec">Terms &amp; Conditions</a>';
-      footer.appendChild(legal);
-    }
-
-    /* The lead form is created after the quiz, so enhance it whenever it appears. */
-    doc.querySelectorAll('form.lead-form').forEach(function(form){
-      form.removeAttribute('onsubmit');
-      var submitBtn=form.querySelector('button[type="submit"],.btn');
-      if(submitBtn)submitBtn.type='button';
-      if(form.dataset.a2pEnhanced==='1'){
-        if(frame.contentWindow.TRGIntake)frame.contentWindow.TRGIntake.enhance(form);
-        return;
-      }
-      form.dataset.a2pEnhanced='1';
-
-      var button=form.querySelector('button[type="submit"],.btn');
-      var consent=doc.createElement('div');
-      consent.className='full';
-      consent.style.cssText='display:grid;gap:10px;margin-top:2px';
-      consent.innerHTML=''
-        +'<label style="display:flex;align-items:flex-start;gap:10px;font-size:11.5px;line-height:1.55;color:#4f5661;text-transform:none;letter-spacing:0;font-weight:600">'
-        +'<input type="checkbox" name="sms_service_consent" value="yes" style="margin-top:3px;width:16px;height:16px;flex:none">'
-        +'<span>I agree to receive conversational and informational text messages from <strong>Texas Roof Guardians</strong> about my inquiry, appointment, estimate, project or claim-related services. Message frequency varies. Message and data rates may apply. Reply <strong>STOP</strong> to opt out and <strong>HELP</strong> for help. Consent is not a condition of purchase.</span></label>'
-        +'<label style="display:flex;align-items:flex-start;gap:10px;font-size:11.5px;line-height:1.55;color:#4f5661;text-transform:none;letter-spacing:0;font-weight:600">'
-        +'<input type="checkbox" name="sms_marketing_consent" value="yes" style="margin-top:3px;width:16px;height:16px;flex:none">'
-        +'<span>I also agree to receive occasional marketing or promotional text messages from <strong>Texas Roof Guardians</strong>, including roofing offers, maintenance reminders and storm-related promotions. Message frequency varies. Message and data rates may apply. Reply <strong>STOP</strong> to opt out and <strong>HELP</strong> for help. Consent is not a condition of purchase.</span></label>'
-        +'<div style="font-size:11px;color:#7b838d;line-height:1.55">Both SMS choices are optional and unchecked by default. You can submit without agreeing to receive texts. <a href="'+PRIVACY+'" target="_top" style="color:#024e7c;font-weight:700">Privacy Policy</a> · <a href="'+TERMS+'" target="_top" style="color:#024e7c;font-weight:700">Terms &amp; Conditions</a></div>';
-      if(button)form.insertBefore(consent,button);else form.appendChild(consent);
-
-      var fine=form.querySelector('.lf-fine');
-      if(fine){fine.innerHTML='No obligation · Stays private · Not a commitment to any work';}
-      if(frame.contentWindow.TRGIntake)frame.contentWindow.TRGIntake.enhance(form);
-    });
+  else if (state.phase === 'branch'){
+    const f = FLOW[state.branch][state.stepIndex];
+    html = '<div class="q-fade"><div class="q-question">'+f.q+'</div>'+(f.sub?'<div class="q-sub">'+f.sub+'</div>':'<div class="q-sub"></div>')+'<div class="q-opts">';
+    f.opts.forEach((o,i)=>{ html += optBtn(o, "pickBranch("+i+")"); });
+    html += '</div>'+navRow()+'</div>';
   }
+  else if (state.phase === 'common'){
+    const f = COMMON_QS[state.stepIndex];
+    html = '<div class="q-fade"><div class="q-question">'+f.q+'</div>'+(f.sub?'<div class="q-sub">'+f.sub+'</div>':'')+'<div class="q-opts">';
+    f.opts.forEach((o,i)=>{ html += optBtn(o, "pickCommon("+i+")"); });
+    html += '</div>'+navRow()+'</div>';
+  }
+  else if (state.phase === 'form'){
+    html = renderOutcome();
+  }
+  else if (state.phase === 'done'){
+    html = renderConfirm();
+  }
+  body.innerHTML = html;
+  setChrome();
+}
 
-  frame.addEventListener('load',function(){
-    enhance();
-    try{
-      var doc=frame.contentDocument||frame.contentWindow.document;
-      var adapter=doc.createElement('script');
-      adapter.src=new URL('assets/intake.js',location.href).href;
-      adapter.onload=enhance;
-      doc.body.appendChild(adapter);
-      var obs=new MutationObserver(enhance);
-      obs.observe(doc.documentElement,{childList:true,subtree:true});
-    }catch(e){}
-  });
+function navRow(){
+  return '<div class="q-nav"><button class="q-back" onclick="goBack()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>Back</button><span class="q-note">No obligation · Stays private</span></div>';
+}
+
+function pickStart(i){
+  const o = FLOW.start.opts[i];
+  state = {branch:o.b, stepIndex:0, answers:[{q:'Situation', a:BRANCH_META[o.b].label}], phase:'branch'};
+  render();
+}
+function pickBranch(i){
+  const f = FLOW[state.branch][state.stepIndex];
+  state.answers.push({q:f.q, a:f.opts[i]});
+  if (state.stepIndex + 1 < FLOW[state.branch].length){ state.stepIndex++; }
+  else { state.phase='common'; state.stepIndex=0; }
+  render();
+}
+function pickCommon(i){
+  const f = COMMON_QS[state.stepIndex];
+  state.answers.push({q:f.q, a:f.opts[i], id:f.id});
+  if (state.stepIndex + 1 < COMMON_QS.length){ state.stepIndex++; }
+  else { state.phase='form'; }
+  render();
+}
+function goBack(){
+  if (state.phase==='branch'){
+    state.answers.pop();
+    if (state.stepIndex>0){ state.stepIndex--; }
+    else { state = null; render(); return; }
+  } else if (state.phase==='common'){
+    state.answers.pop();
+    if (state.stepIndex>0){ state.stepIndex--; }
+    else { state.phase='branch'; state.stepIndex = FLOW[state.branch].length-1; }
+  } else if (state.phase==='form'){
+    state.phase='common'; state.stepIndex = COMMON_QS.length-1; state.answers.pop();
+  }
+  render();
+}
+
+function renderOutcome(){
+  const m = BRANCH_META[state.branch];
+  const renter = state.answers.some(a=>a.id==='owner' && a.a.indexOf('I rent')>-1);
+  const outside = state.answers.some(a=>a.id==='area' && a.a==='Outside Central Texas');
+  let warn = '';
+  if (renter) warn += '<div class="oc-warn">Since you rent, the property owner will need to authorize any work. Share their contact details below if you can, or pass this page along to them, and we’ll take it from there.</div>';
+  if (outside) warn += '<div class="oc-warn">We serve San Antonio, Austin and Central Texas. If the property is outside that area, send the details anyway and we’ll tell you honestly whether we can help or point you in the right direction.</div>';
+  let pts = '';
+  m.points.forEach(p=>{ pts += '<li><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><span>'+p+'</span></li>'; });
+  let tags = '';
+  state.answers.forEach(a=>{ tags += '<span class="tag">'+a.a+'</span>'; });
+  return '<div class="q-fade">'
+    + '<span class="oc-flag '+m.flag+'">Your recommended next step</span>'
+    + '<div class="oc-title">'+m.title+'</div>'
+    + '<div class="oc-copy">'+m.copy+'</div>'
+    + '<ul class="oc-points">'+pts+'</ul>'
+    + warn
+    + '<div class="oc-summary"><b>What you told us</b>'+tags+'</div>'
+    + '<form class="lead-form" onsubmit="return submitLead(event)">'
+    + '<div class="lf-field"><label>Full name</label><input required name="name" autocomplete="name" placeholder="Your name"></div>'
+    + '<div class="lf-field"><label>Phone</label><input required name="phone" type="tel" autocomplete="tel" placeholder="(210) 555-0123"></div>'
+    + '<div class="lf-field"><label>Email</label><input required name="email" type="email" autocomplete="email" placeholder="you@email.com"></div>'
+    + '<div class="lf-field"><label>Property ZIP code</label><input required name="zip" inputmode="numeric" autocomplete="postal-code" placeholder="78201"></div>'
+    + '<div class="full" style="display:grid;gap:10px;margin-top:2px"><label style="display:flex;align-items:flex-start;gap:10px;font-size:11.5px;line-height:1.55;color:#4f5661;text-transform:none;letter-spacing:0;font-weight:600"><input type="checkbox" name="sms_service_consent" value="yes" style="margin-top:3px;width:16px;height:16px;flex:none"><span>I agree to receive conversational and informational text messages from <strong>Texas Roof Guardians</strong> about my inquiry, appointment, estimate, project or claim-related services. Message frequency varies. Message and data rates may apply. Reply <strong>STOP</strong> to opt out and <strong>HELP</strong> for help. Consent is not a condition of purchase.</span></label><label style="display:flex;align-items:flex-start;gap:10px;font-size:11.5px;line-height:1.55;color:#4f5661;text-transform:none;letter-spacing:0;font-weight:600"><input type="checkbox" name="sms_marketing_consent" value="yes" style="margin-top:3px;width:16px;height:16px;flex:none"><span>I also agree to receive occasional marketing or promotional text messages from <strong>Texas Roof Guardians</strong>, including roofing offers, maintenance reminders and storm-related promotions. Message frequency varies. Message and data rates may apply. Reply <strong>STOP</strong> to opt out and <strong>HELP</strong> for help. Consent is not a condition of purchase.</span></label><div style="font-size:11px;color:#7b838d;line-height:1.55">Both SMS choices are optional and unchecked by default. You can submit without agreeing to receive texts. <a href="privacy.html" style="color:#024e7c;font-weight:700">Privacy Policy</a> · <a href="terms.html" style="color:#024e7c;font-weight:700">Terms &amp; Conditions</a></div></div>'
+    + '<button class="btn btn-red" type="submit">Get My '+(state.branch==='claim'?'Claim Review':state.branch==='solar'?'Consultation':state.branch==='options'?'Consultation & Guide':state.branch==='aging'?'Assessment':'Free Inspection')+'</button>'
+    + '<div class="lf-fine">No obligation · Stays private · Not a commitment to any work</div>'
+    + '</form>'
+    + navRow() + '</div>';
+}
+
+function submitLead(e){
+  e.preventDefault();
+  const form = e.currentTarget;
+  let status = form.querySelector('[data-trg-adapter-error]');
+  if (!status) { status = document.createElement('p'); status.dataset.trgAdapterError = '1'; status.setAttribute('role', 'alert'); form.appendChild(status); }
+  status.textContent = 'Request not sent: the secure intake connection could not load. Please retry or call 830-228-6123.';
+  return false;
+}
+
+function renderConfirm(){
+  const m = BRANCH_META[state.branch];
+  return '<div class="q-fade" style="text-align:center;padding-top:14px">'
+    + '<div class="confirm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>'
+    + '<div class="oc-title">You’re all set</div>'
+    + '<div class="oc-copy" style="max-width:520px;margin:0 auto 10px">Your request for <b>'+m.title.toLowerCase()+'</b> is in. You’ll get a confirmation right away and a fast follow-up to get it scheduled. If this is urgent, don’t wait on us:</div>'
+    + '<div style="margin:22px 0 8px"><a class="btn btn-navy" href="tel:8302286123">Call 830-228-6123 Now</a></div>'
+    + '<div class="q-note" style="margin-top:16px">Want the free guide while you wait? <a href="repair-replace-or-file-a-claim.pdf" target="_blank" rel="noopener" style="color:var(--blue-2);font-weight:700">Download Repair, Replace or File a Claim?</a></div>'
+    + '<div style="margin-top:26px"><button class="q-back" onclick="startQuiz()" style="margin:0 auto">Start over</button></div>'
+    + '</div>';
+}
+
+/* =====================================================
+   REVIEWS MARQUEE
+   Real Google reviews from the Texas Roof Guardians
+   Google Business Profile (5.0, 56 reviews), excerpted
+   at sentence boundaries.
+===================================================== */
+const REVIEWS = [
+  {n:'Rei Lynn', t:"They did a phenomenal job with my roof! We had some branches fall a few months ago and put a couple small holes in the shingles. Not only were they efficient and polite, they cleaned up very well! Overall 10/10. Great price, great team, great work."},
+  {n:'Keith Gonzales', t:"Used Texas Roof Guardians for my roof replacement. From the initial estimates to the final cleanup, Jasper kept me updated with phone calls and texts. He even checks in with me to make sure everything is still good."},
+  {n:'SJ Osborne', t:"Jasper and Texas Roof Guardians are the best roofers in San Antonio hands down. They did amazing work for us and worked to help us get paid fairly through Allstate."},
+  {n:'Andrew & Annabeth Istvan', t:"Huge shoutout to the team at Texas Roof Guardians! I was worried about the damage after the recent storms, but they made the process so easy. They didn't just settle for the first estimate the insurance company gave."},
+  {n:'CM', t:"I really can't thank Carlos enough for going the extra mile on my roof insurance claim. After a big wind storm messed up my roof, the insurance company kept dragging their feet and said it didn't qualify for a wind claim."},
+  {n:'Alynka Ramos', t:"A raccoon made a hole near my chimney, but Mauricio helped me fix it. I hope to have my entire roof done by this company soon; they seem fair and honest."},
+  {n:'Alejandro Garcia', t:"Maurice, thank you for everything. I'm very happy with the work, I loved the result!"},
+];
+(function renderReviews(){
+  const star = '<svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.2 5.8 20.9l1.6-7L2 9.2l7.1-.6L12 2z"/></svg>';
+  const gicon = '<svg viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>';
+  let card = r => '<div class="rev-card"><div class="stars">'+star.repeat(5)+'</div><p>&ldquo;'+r.t+'&rdquo;</p><div class="who"><b>'+r.n+'</b><span class="gtag">'+gicon+'Google review</span></div></div>';
+  const set = REVIEWS.map(card).join('');
+  document.getElementById('revTrack').innerHTML = set + set; /* duplicated for seamless loop */
 })();
+
+/* initial render */
+startQuizInit();
+function startQuizInit(){ state=null; render(); }
 </script>
 <script src="assets/intake.js"></script>
 <script>
-(function(){
-  if (window.TRGIntake) return;
-  var frame = document.getElementById('assessmentFrame');
-  var fb = document.getElementById('assessmentFallback');
-  if (frame) frame.style.display = 'none';
-  if (fb) fb.style.display = 'block';
+(function () {
+  function enhance() {
+    if (!window.TRGIntake) return;
+    document.querySelectorAll('form.lead-form').forEach(function (form) { window.TRGIntake.enhance(form); });
+  }
+  new MutationObserver(enhance).observe(document.documentElement, {childList:true, subtree:true});
+  enhance();
 })();
 </script>
 </body>
