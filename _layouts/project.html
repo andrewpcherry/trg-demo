@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/">
+<title>{{ page.title }}</title>
+<meta name="description" content="{{ page.description }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<meta property="og:site_name" content="Texas Roof Guardians">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ page.og_title }}">
+<meta property="og:description" content="{{ page.description }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:image" content="{{ page.hero | absolute_url }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0D4D7B">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&amp;family=Open+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":{{ page.og_title | jsonify }},"description":{{ page.description | jsonify }},"url":{{ page.url | absolute_url | jsonify }},"image":{{ page.hero | absolute_url | jsonify }},"creator":{"@type":"RoofingContractor","name":"Texas Roof Guardians","telephone":"+1-830-228-6123","areaServed":["San Antonio","Austin","Central Texas"]}}</script>
+</head>
+<body>
+<header class="phero">
+  <div class="hero-media"><img src="{{ page.hero }}" alt="{{ page.og_title }}"></div>
+  <div class="hero-shade"></div>
+  <div class="wrap">
+    <span class="crumb"><a href="projects.html">Project Library</a> &nbsp;/&nbsp; {{ page.location }}</span>
+    <h1>{{ page.og_title }}</h1>
+    <p class="lead">{{ page.description }}</p>
+  </div>
+</header>
+<main class="sec">
+  <div class="wrap" style="max-width:900px">
+    <div class="fcard" style="padding:36px;line-height:1.75">
+      {{ content }}
+      <div class="hero-ctas" style="margin-top:28px">
+        <a class="btn btn-red" href="roof-assessment.html">Take the 60-Second Roof Assessment</a>
+        <a class="btn btn-navy" href="projects.html">View Project Library</a>
+      </div>
+    </div>
+  </div>
+</main>
+<script>window.PAGE={key:"projects.html",chat:[]};</script>
+<script src="assets/reviews.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>
+
