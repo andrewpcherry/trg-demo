@@ -48,3 +48,15 @@ The adjacent fix-lovable-import.py applies these exact changes to the existing L
 - No voice AI was introduced.
 
 Do not mark the full implementation complete until these remaining items have recorded live evidence.
+
+
+## Correction deployed and verified — September 12 follow-up
+
+- Lovable correction revision: 526f42e35f2f5b574fbc8235764c05bff0d5c7c7.
+- Deployment: 79dc0fb6-12eb-4ceb-a2ce-204ba5bc463d, published using the existing project/domain.
+- Both /commercial/guardian-commercial-care and its .html alias now return HTTP 200 with the original main-domain canonical. This resolves the one failed URL in the preceding 45-URL audit.
+- /contact and /contact.html return 200 with corrected 8am–6pm Central hours; public/assets/site.js has the same correction and no Monday–Saturday day range.
+- Reviewed diff was limited to the route aliases and exact hours replacement in four existing files.
+- Builder operation cost: 1.7 Lovable credits.
+- GHL Business Profile website saved as https://go.txroofguardians.com/ and verified after reload. Saving initially failed because the existing business phone lacked the +1 country prefix; formatting was corrected without changing Dustin's number.
+- A2P website field uses the same exact go-domain URL. Registration validation is being rechecked; no submission or carrier approval claimed.
