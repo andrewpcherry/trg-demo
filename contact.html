@@ -52,7 +52,8 @@ permalink: /contact
       <div class="rv rv-d1">
         <div class="fcard" style="padding:34px">
           <h3 style="margin-bottom:18px">Request a callback</h3>
-          <form id="callbackForm" onsubmit="event.preventDefault();alert('Thanks — your request is ready to be connected to the Texas Roof Guardians GoHighLevel workflow.');" style="display:flex;flex-direction:column;gap:12px">
+          <form id="callbackForm" onsubmit="event.preventDefault();this.querySelector('[data-intake-fallback]').hidden=false;" style="display:flex;flex-direction:column;gap:12px">
+            <p data-intake-fallback role="alert" hidden>Request not sent: the connection could not load. Please call 830-228-6123.</p>
             <label style="font-size:.78rem;font-weight:700">Full name
               <input name="name" autocomplete="name" required placeholder="Full name" style="width:100%;margin-top:5px;padding:13px 16px;border:1.5px solid var(--line);border-radius:10px;font-family:inherit;font-size:.9rem">
             </label>
@@ -81,7 +82,7 @@ permalink: /contact
             </label>
 
             <button class="btn btn-red" type="submit" style="width:100%">Send Request</button>
-            <small style="font-size:.68rem;color:var(--mut);line-height:1.55">The SMS checkboxes are optional and unchecked by default. You can submit this request without agreeing to receive text messages. See our <a href="/privacy" style="text-decoration:underline">Privacy Policy</a> and <a href="/sms-terms" style="text-decoration:underline">SMS Terms</a>.</small>
+            <small style="font-size:.68rem;color:var(--mut);line-height:1.55">The SMS checkboxes are optional and unchecked by default. You can submit this request without agreeing to receive text messages. See our <a href="/privacy" style="text-decoration:underline">Privacy Policy</a>, <a href="/terms" style="text-decoration:underline">Terms &amp; Conditions</a> and <a href="/sms-terms" style="text-decoration:underline">SMS Terms</a>.</small>
           </form>
         </div>
       </div>
