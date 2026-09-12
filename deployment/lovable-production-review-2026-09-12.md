@@ -1,62 +1,34 @@
-# Lovable production verification — September 12, 2026
+# Public website verification — September 12, 2026
 
-Status: Published by Andrew; not end-to-end launch verified.
+Production website: https://go.txroofguardians.com/
 
-## Sources
-- Website source: andrewpcherry/trg-demo, commit 1191a9d5c258ed34b486d939521c2c17123f9450.
-- Lovable project: fa662d97-0468-45de-be98-2fce2ca554e2.
-- Verified imported Lovable revision: c70d0fcc607e25698a5bf7794cbd1cb61477f06d.
-- Production: https://go.txroofguardians.com/
-- Main-domain DNS was not changed.
+## Completed correction
 
-## Verified
-- Production homepage returns HTTP 200 and contains the integrated website.
-- Homepage assessment CTA opens /roof-assessment.html.
-- Live storm branch reaches the lead form with the selected qualification answers.
-- Service and marketing SMS checkboxes are separate, unchecked and not required.
-- Privacy, terms and SMS terms are public at clean and .html paths.
-- Privacy includes the mobile-information non-sharing clause; policies identify Texas Roof Guardians and Dustin's business email.
-- 45 requested production URLs checked: 44 HTTP 200; one HTTP 404 listed below.
+- Restored /commercial/guardian-commercial-care and /commercial/guardian-commercial-care.html.
+- Both URLs return HTTP 200 and preserve the canonical https://txroofguardians.com/commercial/guardian-commercial-care.
+- Contact page and shared footer hours show 8am–6pm Central, with the unconfirmed Monday–Saturday range removed.
+- The targeted correction changed only the existing route handler and the hours text in the existing contact page, shared script and generated page content.
+- The source correction script is deployment/fix-lovable-import.py in this branch.
+
+## Public verification
+
+- Integrated homepage returns HTTP 200.
+- Homepage assessment link opens /roof-assessment.html.
+- Storm assessment path reaches its enquiry form with selected answers displayed.
+- Service and marketing SMS choices are separate, optional and unchecked.
+- The original audit checked 45 public URLs: 44 succeeded and the commercial-care route failed. The correction resolves that one failure; its clean and .html routes were verified after publication.
 - All 15 project pages from the source sitemap return HTTP 200.
-- Source comparison covers 35 HTML/project source pages. Existing titles, H1s, canonical tags, verification token and structured data were retained where the original route exists. Two descriptions replace 24/7 wording with after-hours wording.
-- Sitemap and robots content preserved apart from trailing whitespace. Main-domain canonical URLs remain the SEO authority.
-- Existing GHL intake adapter preserved apart from trailing whitespace.
-- Legacy agreement URL works; roof guide returns an actual PDF.
+- Existing page titles, H1s, canonical tags, verification token and structured data were retained where the imported original route existed. Two descriptions replace 24/7 wording with after-hours wording.
+- Sitemap and robots content preserved apart from trailing whitespace; main-domain canonical URLs remain in place.
+- The existing intake JavaScript was preserved apart from trailing whitespace.
+- Legacy agreement page and roof guide PDF are available.
 
-## Corrections prepared
-1. /commercial/guardian-commercial-care returns HTTP 404 despite remaining in the sitemap. The imported page exists at /guardian-care and has the original canonical URL. Add the original clean and .html routes to the existing handler.
-2. Imported shared/footer contact hours say Monday–Saturday. Andrew confirmed 8am–6pm, while the inspection calendar uses weekdays. Remove the unconfirmed day range from website hours; retain 8am–6pm Central.
+## Public policy page checks after correction
 
-The adjacent fix-lovable-import.py applies these exact changes to the existing Lovable runtime without redesigning pages or changing the main-domain DNS.
+| URL | HTTP result | Page title |
+| --- | --- | --- |
+| https://go.txroofguardians.com/contact.html | 200, no redirect | Schedule Inspection or Claim Review — Texas Roof Guardians |
+| https://go.txroofguardians.com/privacy.html | 200, no redirect | Privacy Policy — Texas Roof Guardians |
+| https://go.txroofguardians.com/terms.html | 200, no redirect | Terms & Conditions — Texas Roof Guardians |
 
-## GHL / A2P state
-- Business identity and IRS address checked against the supplied letter; sensitive tax ID intentionally excluded from this report.
-- Dustin's business email and mobile entered as registration contact.
-- Manual website-form registration selected; no false widget-only attestation made.
-- Low Volume Mixed selected; UI shows $22.50 one-time and $10 monthly.
-- Roofing-specific use case and separate marketing/service samples entered.
-- After publication, GHL still displays Invalid website for https://go.txroofguardians.com and disables Continue. No brand or campaign submission completed.
-- The cause of GHL's website rejection is not established. Do not claim DNS failure solely from this UI message.
-- The public website loading successfully does not prove carrier approval.
-
-## Still unverified
-- Actual website submission creating/updating the right GHL contact and independent consent fields.
-- Pipeline, notifications, booking, follow-up suppression, delivery, STOP/HELP and missed-call handling.
-- Sending number assignment and A2P approval.
-- ChatGPT Ads pixel/conversion setup; no verified pixel configuration was present in imported source.
-- Ongoing GitHub synchronization. Lovable explicitly reported a pinned import only; source and correction artifacts in GitHub are not proof of automatic synchronization.
-- No voice AI was introduced.
-
-Do not mark the full implementation complete until these remaining items have recorded live evidence.
-
-
-## Correction deployed and verified — September 12 follow-up
-
-- Lovable correction revision: 526f42e35f2f5b574fbc8235764c05bff0d5c7c7.
-- Deployment: 79dc0fb6-12eb-4ceb-a2ce-204ba5bc463d, published using the existing project/domain.
-- Both /commercial/guardian-commercial-care and its .html alias now return HTTP 200 with the original main-domain canonical. This resolves the one failed URL in the preceding 45-URL audit.
-- /contact and /contact.html return 200 with corrected 8am–6pm Central hours; public/assets/site.js has the same correction and no Monday–Saturday day range.
-- Reviewed diff was limited to the route aliases and exact hours replacement in four existing files.
-- Builder operation cost: 1.7 Lovable credits.
-- GHL Business Profile website saved as https://go.txroofguardians.com/ and verified after reload. Saving initially failed because the existing business phone lacked the +1 country prefix; formatting was corrected without changing Dustin's number.
-- A2P website field uses the same exact go-domain URL. Registration validation is being rechecked; no submission or carrier approval claimed.
+These checks establish public website availability and the specific corrections above. They do not establish successful CRM delivery, appointment creation, messaging approval or end-to-end operational readiness.
