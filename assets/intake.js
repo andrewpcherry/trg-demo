@@ -37,6 +37,8 @@
         if (response.ok && body && body.status === 'ok') {
           clearTimeout(attempt.timer);
           attempt.setState('confirmed', 'Request received. This is not an appointment confirmation. For urgent help, call 830-228-6123.');
+          // Count only an acknowledged enquiry, not a CRM contact or booking.
+          try { window.TRGMeasurement?.leadSubmitted(attempt.eventId); } catch (_) {}
         }
       }
       return response;
@@ -112,6 +114,13 @@
         try { pageURL = parent.location.href; } catch (_) {}
         try { referrer = parent.document.referrer; } catch (_) {}
       }
+      const safeURL = value => {
+        try { const url = new URL(value); return /^https?:$/.test(url.protocol) ? url.origin + url.pathname : ''; } catch (_) { return ''; }
+      };
+      pageURL = safeURL(pageURL);
+      referrer = safeURL(referrer);
+      let attribution = {};
+      try { attribution = window.TRGMeasurement?.attribution() || {}; } catch (_) {}
       field(form, 'message', 'Message', [
         'Texas Roof Guardians website enquiry',
         'Request: ' + request,
@@ -120,6 +129,7 @@
         'Marketing SMS consent: ' + marketing,
         'Page: ' + pageURL,
         'Referrer: ' + referrer,
+        'Campaign attribution: ' + JSON.stringify(attribution),
         'Disclosure version: trg-sms-2026-09-07'
       ].join('\n'));
       field(form, 'roofing_enquiry_type', 'Roofing Enquiry Type', request);
@@ -136,7 +146,9 @@
         else control.readOnly = true;
       });
       navBacks.forEach(b => { b.disabled = true; });
-      active = {form, setState};
+      let eventId;
+      try { eventId = crypto.randomUUID(); } catch (_) {}
+      active = {form, setState, eventId};
       const attempt = active;
       try {
         const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(canonical));
