@@ -24,7 +24,7 @@ function boot(options = {}) {
   };
   context.window = context;
   vm.createContext(context);
-  const code = options.enabled ? source.replace("const OPENAI_ADS_PIXEL_ID = '';", "const OPENAI_ADS_PIXEL_ID = 'test-pixel';") : source;
+  const code = source.replace(/const OPENAI_ADS_PIXEL_ID = '[^']*';/, "const OPENAI_ADS_PIXEL_ID = '" + (options.enabled ? "test-pixel" : "") + "';");
   vm.runInContext(code, context);
   return {context, scripts, listeners, rerun: () => vm.runInContext(code, context), events: () => (context.oaiq?.q || []).map(args => Array.from(args)).filter(args => args[0] === 'measure')};
 }

@@ -3,7 +3,7 @@
   'use strict';
   if (window.TRGMeasurement) return;
   // Activation requires the real account Pixel ID and advanced matching disabled.
-  const OPENAI_ADS_PIXEL_ID = '';
+  const OPENAI_ADS_PIXEL_ID = 'UEdxiZKhGec3641BDvA4yd';
   const ATTR_KEY = 'trg-campaign-v1';
   const CONSENT_KEY = 'trg-ads-consent-v1';
   const KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_id'];

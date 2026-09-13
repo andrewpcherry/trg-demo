@@ -1,16 +1,16 @@
 # Texas Roof Guardians measurement setup — September 13, 2026
 
-Status: code prepared; OpenAI measurement is disabled pending the actual Pixel ID. No production Pixel delivery, GHL contact, pipeline, notification or booking success is asserted.
+Status: Pixel ID UEdxiZKhGec3641BDvA4yd configured in the implementation branch; verified against the TRG Pixel source in the Texas Roof Guardians Ads account. Publication and live event delivery still require verification. No production Pixel delivery, GHL contact, pipeline, notification or booking success is asserted.
 
 ## Source and deployment
 
 The public website runs as static HTML inside the existing Lovable TanStack Start project `fa662d97-0468-45de-be98-2fce2ca554e2`. This patch uses published commit `526f42e35f2f5b574fbc8235764c05bff0d5c7c7` for the current shared script and privacy policy. GitHub stores static files at the root; Lovable stores them under `public/` and serves clean routes from a generated `src/lib/static-pages.ts` map. Refresh that map when changing HTML. Preserve the live commercial-care route and all current SEO canonicals, titles, descriptions, structured data, sitemap and main-domain DNS. This is a focused measurement patch, not a full reconciliation of the older GitHub and Lovable trees or the previous A2P PR.
 
-`assets/site.js` loads `assets/measurement.js` for marketing pages. The standalone assessment loads it directly before intake. The helper guards duplicate loads. The form integration in `assets/intake.js` includes session first/last campaign context in the existing enquiry message. This does not establish native GHL custom-field mapping; check the received contact/enquiry after access is restored.
+`assets/measurement.js` loads once near the top of the HTML head of each marketing page, the standalone assessment, and the Jekyll project template. The old late shared-script loader and assessment body include were removed. The helper guards duplicate loads. The form integration in `assets/intake.js` includes session first/last campaign context in the existing enquiry message. This does not establish native GHL custom-field mapping; check the received contact/enquiry after access is restored.
 
 ## Measurement mode and activation
 
-Browser Pixel only. Set `OPENAI_ADS_PIXEL_ID` in `assets/measurement.js` to the actual Pixel ID created in this business's Ads Manager Conversions tab. It is public configuration, not an API key. The connected account currently exposes no conversion source; available connector actions do not create one. Do not use the ad account ID or GHL tracking ID as the Pixel ID.
+Browser Pixel only. `OPENAI_ADS_PIXEL_ID` in `assets/measurement.js` is UEdxiZKhGec3641BDvA4yd. It is public configuration, not an API key. The account source is TRG Pixel, verified through the Ads connector on September 13, 2026. Production debug logging is off.
 
 Before activation, confirm automatic advanced matching is disabled in the Pixel configuration. The implementation deliberately does not pass a `user` object or any raw or hashed contact details. This preserves the site's mobile-information restrictions. No CAPI path, key, environment variable, server source URL or server attribution transport is added.
 
@@ -22,7 +22,7 @@ First/last campaign labels are limited to utm_source, utm_medium, utm_campaign, 
 
 | Event | Implemented boundary | Limit |
 | --- | --- | --- |
-| page_viewed | One page event after advertising consent | Disabled until real Pixel ID; SDK receipt unverified |
+| page_viewed | One page event after advertising consent | Pixel ID configured; live SDK receipt unverified |
 | lead_created | Matching GHL external-form submission returns HTTP success and JSON status `ok` | Means acknowledged enquiry submission; does not prove contact persistence, qualification or notification delivery |
 | appointment_scheduled | Deferred | No verified booking-success callback or appointment record |
 
@@ -36,7 +36,7 @@ Run `node --test tests/measurement.test.cjs` and `git diff --check`. Tests cover
 
 Before ads launch:
 
-1. Create the account Pixel source, confirm automatic advanced matching is off, configure the real ID, and verify page/lead events in Ads Manager.
+1. The account Pixel source and ID are verified. Confirm automatic advanced matching is off, publish the reviewed code, and verify page/lead events in Ads Manager.
 2. Restore HighLevel connector authorization. Current request fails with HTTP 401, authClass not allowed for scope. Verify one controlled lead through contact, consent, pipeline and owner notifications, then verify calendar availability and a booking record.
 3. Verify SMS gates for all consent combinations, STOP suppression, email delivery and missed calls. Voice AI remains out of scope because the owners declined it.
 4. Resolve exact service-area targeting with supported geo records; do not substitute all Texas or broad DMA coverage for the website's service areas without approval. ChatGPT budget is $75/day as instructed. Campaign not launched.

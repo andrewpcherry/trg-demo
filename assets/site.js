@@ -3,13 +3,6 @@
    Injects nav, footer, chat widget, review marquee.
    ========================================================= */
 (function () {
-  // Shared by all marketing pages; the standalone assessment loads it directly.
-  if (!window.TRGMeasurement && !document.querySelector('script[data-trg-measurement]')) {
-    var measurement = document.createElement('script');
-    measurement.src = '/assets/measurement.js';
-    measurement.dataset.trgMeasurement = 'true';
-    document.head.appendChild(measurement);
-  }
   var PAGE = window.PAGE || {};
   var PHONE = "830-228-6123";
   var TEL = "tel:8302286123";
