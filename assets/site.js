@@ -57,7 +57,7 @@
     return '<div class="topbar"><div class="wrap"><div class="tb-l">' +
       '<span>' + ic(I.shield) + ' Licensed &amp; Insured · TX</span>' +
       '<span>' + ic(I.star) + ' 5.0 on Google · 57 reviews</span>' +
-      '<span>' + ic(I.bolt) + ' 24/7 Storm Response</span>' +
+      '<span>' + ic(I.bolt) + ' After-hours emergency storm response</span>' +
       '</div><a href="' + TEL + '">' + PHONE + '</a></div></div>' +
       '<nav class="nav"><div class="wrap"><div class="nav-pill">' +
       '<a class="nav-logo" href="/"><img src="assets/logo.png" alt="Texas Roof Guardians"></a>' +
@@ -78,7 +78,7 @@
       '<div><img src="assets/logo.png" alt="Texas Roof Guardians"><p>San Antonio’s roofing, storm damage and insurance claim specialists. Also serving Austin and all of Central Texas.</p></div>' +
       '<div><h4>Services</h4><ul><li><a href="/roof-assessment">60-Second Roof Assessment</a></li><li><a href="/residential">Residential Roofing</a></li><li><a href="/commercial">Commercial Roofing</a></li><li><a href="/insurance-claims">Insurance Claims</a></li><li><a href="/storm-protection-plan">Storm Protection Plan</a></li><li><a href="/financing">Roof Financing</a></li><li><a href="/solar">Solar &amp; Energy</a></li></ul></div>' +
       '<div><h4>Company</h4><ul><li><a href="/about">About</a></li><li><a href="/projects">Projects</a></li><li><a href="/service-areas">Service Areas</a></li><li><a href="/hoa">HOA Division</a></li><li><a href="/property-managers">Property Managers</a></li><li><a href="/faq">FAQ</a></li><li><a href="/privacy">Privacy Policy</a></li><li><a href="/terms">Terms &amp; Conditions</a></li><li><a href="/sms-terms">SMS Terms</a></li></ul></div>' +
-      '<div><h4>Contact</h4><ul><li><a href="' + TEL + '">' + PHONE + '</a></li><li>info@txroofguardians.com</li><li>San Antonio, TX</li><li>Serving Austin &amp; Central Texas</li><li>Mon to Fri 8am to 6pm · Emergency storm calls anytime</li></ul></div>' +
+      '<div><h4>Contact</h4><ul><li><a href="' + TEL + '">' + PHONE + '</a></li><li><a href="mailto:dustin@txroofguardians.com">dustin@txroofguardians.com</a></li><li>3686 Copper Willow, Bulverde, TX 78163</li><li>Serving San Antonio, Austin &amp; Central Texas</li><li>8am to 6pm Central · Emergency storm response available after hours</li></ul></div>' +
       '</div><div class="f-bot"><span>&copy; 2026 Texas Roof Guardians. Licensed &amp; Insured in Texas.</span><span><a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms &amp; Conditions</a> · <a href="/sms-terms">SMS Terms</a></span></div>' +
       '</div></footer>';
   }
